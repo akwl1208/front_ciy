@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+	<title>회원가입 예제</title>
+</head>
+<body>
+	<form>
+		<h1>회원가입</h1>
+		<!-- required : 필수 항목에 추가 -->
+		아이디: <input type="text" name="id" required tabindex="1"> <br/>
+		비밀번호 : <input type="password" name="pw" tabindex="2"> <br/>
+		비밀번호 확인 : <input type="password" name="pwcheck" tabindex="3"> <br/>
+		이메일 : <input type="email" name="email" tabindex="4"> <br/>
+		<!-- checked : 기본값 지정 -->
+		성별 : <input type="radio" name="gender" value="male" checked> 남성
+		<input type="radio" name="gender" value="female"> 여성 <br/>
+		<!-- readonly : 수정 불가능. 서버에 전송 가능-->
+		전화번호 : <input type="text" name="num1" value="010" readonly>
+		- <input type="text" name="num2" tabindex="5"> - <input type="text" name="num3" tabindex="6"><br/>
+		<input type="submit" value="회원가입" tabindex="7">
+	</form>
+</body>
+</html>
