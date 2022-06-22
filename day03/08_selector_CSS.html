@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>CSS 선택자</title>
+	<style>
+		/* 태그 선택자 */
+		p{
+			color: red;
+		}
+		/* id 선택자 : id는 중복 불가*/
+		#name{
+			color: blue;
+		}
+		/* 클래스 선택자 */
+		.btn{
+			color: green;
+		}
+		.btn2{
+			color: purple;
+		}
+		input[type=text]{
+			color : darkorange;
+		}
+		/* 가상클래스 선택자 */
+		#name:hover{
+			color : aqua;
+		}
+	</style>
+</head>
+<body>
+	<p>안녕하세요</p>
+	<div id="name">홍길동</div>
+	<button class="btn">버튼</button>
+	<button class="btn">버튼</button>
+	<p>안녕히 가세요</p>
+	<!-- 선택자 우선순위 -->
+	<p class="btn btn2">감사합니다</p>
+	<hr>
+	<!-- 속성 선택자 -->
+	<input type="text"> <br/>
+	<input type="password"> <br/>
+
+</body>
+</html>
