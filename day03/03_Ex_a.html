@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>로그인 버튼 예제</title>
+</head>
+<body>
+	<!-- 로그인 버튼을 누르면 02_a.html로 이동하는 코드 작성 -->
+	<!-- 방법1 : a 태그로 감싸기
+			- 버튼 전체에 a태그 적용
+			- 엔터에 의한 공백이 들어가서 의도치 않은 _가 발생 -> 한 줄로 작성하면 해결됨 -->
+	
+	<a href="../day03/02.a_tag.html">
+		<button>
+			로그인
+		</button>
+	</a> <br/>
+	<!-- 방법2 : button으로 감싸기
+			- 글자를 a태그로 감쌌기 때문에 버튼의 일부가 a태그가 적용되지 않음 -->
+	<button>
+		<a href="02.a_tag.html">로그인</a>
+	</button>
+</body>
+</html>
