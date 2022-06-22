@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>선택자 관계</title>
+	<style>
+		/* div 태그의 자식 요소들 중에서 b 태그 선택 -> 그러나 b는 자식 요소가 아니라서 적용 안됨 */
+		div>b{
+			color: purple;
+		}
+		/* div 택의 자손 요소들 중에서 b 태그 선택 -> b는 div 자손 -> 색 적용 */
+		div b{
+			color: red;
+		}
+		/* div 중 클래스명이 name인 경우 */
+		div.name{
+			color: blue;
+		}
+	</style>
+</head>
+<body>
+	<!-- 선택자 관계
+		* div 태그의 자식 요소들 -> p
+		* div 태그의 자손 요소들 -> p, b
+		* p 태그의 부모 요소 -> div
+		* p 태그의 조상 요소들 -> div, body
+		* b 태그의 부모 요소 -> p
+		* b 태그의 조상 요소들 -> p, div
+	 -->
+
+	<div>
+		인사말
+		<p>
+			안녕하세요. 제 이름은 <b>홍길동</b>입니다.
+			만나서 반갑습니다.
+		</p>
+	</div>
+	<a href="#">홈으로</a>
+</body>
+</html>
