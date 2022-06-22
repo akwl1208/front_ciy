@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>스타일 상속</title>
+	<style>
+		/* p 태그 안에 있는 모든 요소들에 글자색이 빨간색이 되도록 상속됨 */
+		p{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<p>
+		안녕하세요<br/>
+		<span>홍길동</span> <br/>
+		<!-- a도 p의 자식 태그이지만, p 태그의 스타일을 상속받은 후, a 태그에 있는 글자색으로
+			오버라이딩함 -> 그래서 이동만 파란색 -->
+		<a href="#">이동</a>
+	</p>
+</body>
+</html>
