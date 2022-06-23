@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>margin 속성</title>
+	<style>
+		.box{
+			width: 100px; height: 100px; background-color: red;
+			margin-top: 10px;
+			margin-bottom: 10px;
+			/* 박스가 가운데 정렬됨 */
+			margin: 10px auto; 
+		}
+		.box2{
+			background-color: blue;
+			/* calc는 연산자 앞뒤로 공백을 줘야됨 */
+			margin-left: calc(50% - 200px);
+		}
+		
+	</style>
+</head>
+<body>
+	<!-- 공백으로 클래스 2개 이상 쓸 수 있다 -->
+	<div class="box1 box"></div>
+	<div class="box2 box"></div>
+</body>
+</html>
