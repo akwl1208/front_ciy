@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>배경 속성</title>
+	<style>
+		.box{
+			width: 500px; height: 500px;
+			border: 1px solid black;
+			/* 배경색 */
+			background-color: yellow;
+			/* 배경 이미지 */
+			background-image: url(../image/dog.jpg);
+			/* 배경 이미지 반복 */
+			background-repeat: no-repeat;
+			/* 배경 이미지 시작 위치 */
+			background-position: 100px 100px;
+			background-position: center center;
+			/* 배경 이미지 크기 */
+			background-size: 120%;
+			background-size: contain;
+			background: yellowgreen url(../image/dog.jpg) center center/contain no-repeat;
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+</body>
+</html>
