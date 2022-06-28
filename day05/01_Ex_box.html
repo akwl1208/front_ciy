@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>box안 box 예제</title>
+	<style>
+		.box{
+			width: 500px; height: 300px; background-color: darkslateblue;
+			margin-bottom: 20px;
+			float: left;
+		}
+		/* 방법1 : position 이용 */
+		/* absolute는 조상 중 relative 또는 absolute인 조상을 기준으로 */
+		.box1{
+			position: relative;
+		}
+		.box1>.inner-box{
+			/* 가로 세로 지정하지 않고 상자 만드는 법 : 여백 지정ㅂ */
+			/* width: 480px; height: 280px; */
+			top: 10px; left: 10px; bottom: 10px; right: 10px;
+			background-color: beige;
+			position: absolute;
+		}
+		/* 방법2 : 부모 요소에 padding 적용*/
+		.box2{
+			padding: 10px; box-sizing: border-box;
+		}
+		.box2>.inner-box{
+			/* 부모 요소 컨텐츠 크기 기준으로 % 
+				block 태그는 가로는 브라우저 크기로 되지만 세로는 조상이 설정되어 있지 않으면 0px이므로 100%라고 해도 0px*/
+			width: 100%; height: 100%; background-color:darkseagreen;
+		}
+
+		/* 방법3 : margin 이용 */
+		.box3>.inner-box{
+			width: calc(100% - 20px); height: calc(100% - 20px); background-color: lavender;
+			margin: 10px;
+		}
+	</style>
+</head>
+<body>
+	<!-- 가로 500px 세로 300px인 박스 안에 가로 480px 세로 280px인 상자 넣기
+	여백은 10px -->
+	<!-- 방법1 -->
+	<div class="box box1">
+		<div class="inner-box">position</div>
+	</div>
+	<!-- 방법2 -->
+	<div class="box box2">
+		<div class="inner-box">padding</div>
+	</div>
+	<!-- 방법3 -->
+	<div class="box box3">
+		<div class="inner-box">margin</div>
+	</div>
+</body>
+</html>
