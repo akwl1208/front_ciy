@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>검색창</title>
+	<style>
+		*{ margin: 0; padding: 0;}
+		/* <내가 푼거>
+		.search-box{
+			position: relative; top: 100px; left: 100px;
+			width: 500px; height: 50px; 
+			border: 2px solid #19ce60; box-sizing: border-box;
+		}
+		.input-txt{
+			position: relative; top: 8px; left: 8px;
+			width: 400px; height: 30px;
+			border: none;
+			line-height: 30px;
+		}
+		.search-btn{
+			width: 50px; height: 50px; background-color: #19ce60;
+			border: none;
+			float: right;
+			margin-top: -2px;
+			cursor: pointer;
+		} */
+		/* 방법1 */
+		.search-box{
+			width: 500px; height: 50px; box-sizing: border-box;
+			border: 2px solid rgb(25,206,96); border-radius: 2px;
+			position: relative;
+		}
+		/* name으로도 선택 가능 */
+		.search-input, input[name=query]{
+			width: 400px; height: 30px;
+			position: absolute; top: calc(50% - 15px - 2px); left: 10px;
+			background-color: antiquewhite; border: none;
+		}
+		.search-btn{
+			width: 50px;	height: 50px; box-sizing: border-box;
+			background: rgb(25,206,96); 
+			position: absolute; top: -2px; right: -2px;
+			border-radius: 2px; border: none;
+		}
+
+		/* 방법2 */
+		.search-form2{
+			position: relative; width: 500px; margin-top: 10px;}
+		.search-box2{
+			width: 100%; height: 50px; box-sizing: border-box;
+			border: 2px solid rgb(25,206,96); border-radius: 2px;
+		}
+		.search-input2{
+			width: 400px; height: 30px;
+			position: absolute; top: calc(50% - 15px); left: 12px;
+			background-color: antiquewhite; border: none;
+		}
+		.search-btn2{
+			width: 50px;	height: 50px; box-sizing: border-box;
+			background: rgb(25,206,96); 
+			position: absolute; top: 0; right: 0;
+			border-radius: 2px; border: none;
+		} 
+	</style>
+</head>
+<body>
+	<!-- <내가 푼거> 
+	<div class="search-box">	
+		<form>
+			<input type="text" class="input-txt">
+			<button type="submit" class="search-btn"></button>
+		</form>
+	</div> -->
+	<form action="" class="search-box">
+		<input type="text" name="query" class="search-input">
+		<button type="submit" class="search-btn"></button>
+	</form>
+
+	<form action="" class="search-form2" >
+		<div class="search-box2">
+			<input type="text" name="query" class="search-input2">
+			<button type="submit" class="search-btn2"></button>
+		</div>
+	</form>
+</body>
+</html>
