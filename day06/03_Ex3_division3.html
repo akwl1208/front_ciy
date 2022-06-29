@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>오른쪽 상단 배치</title>
+	<style>
+		*{padding: 0; margin: 0;}
+		.container{ padding: 10px;}
+		.right-top-box{ float: right}
+		.box{
+			width: 50px; height: 50px; background-color: gainsboro;	
+			float: left; margin-left: 10px;
+		}
+		.bottom-box{
+			height: 400px; background-color: cadetblue;
+			margin-top: 10px;
+		}
+		.right-top-box::after, .top-box::after{
+			content: ''; display: block; clear: both;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="top-box">
+			<div class="right-top-box">
+				<div class="box">1</div>
+				<div class="box">2</div>
+				<div class="box">3</div>
+			</div>
+		</div>
+		<div class="bottom-box"></div>
+	</div>	
+</body>
+</html>
