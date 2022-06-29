@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://kit.fontawesome.com/38e579569.js" crossorigin="anonymous"></script>
+	<title>아이콘 사용 방법</title>
+	<!-- 아이콘 크기는 font-size로, 색깔은 color로 -->
+	<style>
+		*{padding: 0; margin: 0;}
+		/* <내가 푼거>
+		.menu{
+			position:relative;
+			height: 50px; background-color: darkslategrey;
+		}
+		.fa-bars{
+			position: absolute; top: 0; right: 20px;
+			font-size: 30px; color: white;
+			line-height: 50px;
+			cursor: pointer;
+		} */
+		.ham-menu{
+			float: right; width: 50px; height: 50px;
+			text-align: center; line-height: 50px;
+		}
+		nav{ box-shadow: 2px 0 5px 2px rgba(0, 0, 0, 0.2);}
+		nav::after{clear: both; content: ''; display: block;}
+		.fa-bars{
+			font-size: 30px; color: red; line-height: 50px;
+		}
+	</style>
+</head>
+<body>
+	<!-- 아이콘 이용해서 메뉴바 만들기 -->
+	<!-- <div class="menu">
+		<i class="fa-solid fa-bars"></i>
+	</div> -->
+
+	<nav>
+		<a href="#" class="ham-menu">
+			<i class="fa-solid fa-bars"></i>
+		</a>
+	</nav>
+</body>
+</html>
