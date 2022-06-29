@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>hover-가상클래스</title>
+	<style>
+		.box{
+			width: 100px; height: 100px; background-color: blanchedalmond;
+			text-align: center; line-height: 100px;
+			margin-bottom: 10px;
+		}
+		.box:hover{
+			background-color: hotpink;
+		}
+
+		.box2:hover .text{ display: none;}
+
+		.text2{ display: none;}
+		.box3:hover .text2{ display: inline;}
+	</style>
+</head>
+<body>
+	<div class="box">색 변경</div>
+	<div class="box box2">
+		<span class="text">글자사라짐</span>
+	</div>
+	<div class="box box3">
+		<span class="text2">글자나타남</span>
+	</div>
+</body>
+</html>
