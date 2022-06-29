@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>display: flex</title>
+	<style>
+		.menu{ display: flex;}
+		.menu-list{
+			/* 크기가 고정이 아닌 경우 사용 -> 가로 계산을 안해도 됨 */
+			width: 100%; box-sizing: border-box;
+			border: 3px solid silver;
+			height: 50px; text-align: center; line-height: 44px;
+			text-decoration: none; font-weight: bold; color: black;
+			margin-left: -3px;
+		}
+		.menu-list:first-child{
+			margin-left: 0;
+		}
+	</style>
+</head>
+<body>
+	<nav>
+		<div class="menu">
+			<a href="#" class="menu-list">메뉴1</a>
+			<a href="#" class="menu-list">메뉴2</a>
+			<a href="#" class="menu-list">메뉴3</a>
+		</div>
+	</nav>
+</body>
+</html>
