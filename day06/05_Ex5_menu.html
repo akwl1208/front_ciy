@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>메뉴 예제</title>
+	<style>
+		body{padding: 0; margin: 0;}
+		.a{text-decoration: none;}
+		/* <내가 푼거> 
+		.container{ height: 100vh; background-color: beige;}
+		.menu{
+			height: 5%;			
+		}
+		.box{
+			width: calc((100% - 4px) / 3); height: 100%; background-color: chocolate;
+			font-weight: bold; font-size: 20pt; color: white;
+			text-align: center;
+			border: 1px solid black;
+			float: left;
+		}
+		.menu2{ border-left-style: none;	border-right-style: none; 	}
+		 */
+		 .menu{background-color: mediumorchid;}
+		 .menu::after{
+			display: block; content: ''; clear: both;
+		 }
+		 .menu-1, .menu-list{
+			height: 50px; width: calc(100% / 3); 
+			border: 3px solid blueviolet; box-sizing: border-box;
+			float: left;
+			text-align: center; line-height: 44px; 
+			font-weight: bold; color: azure;
+		 }
+		 .menu-link{
+			display: block; height: 100%;
+			color: azure;
+		 }
+		 .menu-list{
+			border-left: none; 
+		 }
+	</style>
+</head>
+<body>
+	<!-- <내가 푼거> 
+	<div class="container">
+		<div class="menu">
+			<a href="" > <div class="box menu1">메뉴1</div> </a>
+			<a href="" > <div class="box menu2">메뉴2</div> </a>
+			<a href=""> <div class="box menu3">메뉴3</div></a>
+		</div>
+	</div> -->
+
+	<nav>
+		<div class="menu">
+			<div class="menu-1"><a href="#" class="menu-link">메뉴1</a></div>
+			<a href="#" class="menu-list">메뉴2</a>
+			<a href="#" class="menu-list">메뉴3</a>
+		</div>
+	</nav>
+</body>
+</html>
