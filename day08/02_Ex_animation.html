@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>애니메이션 예제</title>
+	<style>
+		/* <내가 푼거>
+		.box{
+			position: relative;
+			width: 100px; height: 50px; background-color: cornflowerblue;
+		}		
+		@keyframes move-box {
+			0%{ left: 0%;}
+			50%{ left: calc(100% - 100px);}
+			100%{ left: 0%;}			
+		}
+		.box{
+			animation-name: move-box;
+			animation-iteration-count: 2;
+			animation-duration: 3s;
+			animation-timing-function: linear;
+		} */
+		/* 방법1 : margin 이용 */
+		@keyframes move-box1{
+			0%{ margin-left: 0;}
+			50%{ margin-left: 300px;}
+			100%{ margin-left: 0;}
+		}
+		/* 방법2 : float */
+		@keyframes move-box2{
+			0%{ float: left;}
+			50%{ float: right;}
+			100%{ float: left;}
+		}
+		/* 방법3 : position */
+		@keyframes move-box3{
+			0%{ left: 0%;}
+			50%{ left: calc(100% - 100px); background-color: deeppink;}
+			100%{ left: 0%;}			
+		}
+		.box{
+			width: 100px; height: 100px; background-color: blueviolet;
+			animation: move-box3 3s infinite;
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+	12345
+</body>
+</html>
