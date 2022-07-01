@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>naver</title>
+	<style>
+		*{padding: 0; margin: 0;}
+		ul,ol,li{list-style: none;}
+		a{text-decoration: none;}
+
+		.fixed-con{
+			width: 1190px; margin: 0 auto; box-sizing: border-box;
+			padding: 0 30px; 
+		}
+		.menu-con, .footer{min-width: 1190px;}
+
+		.search-con{
+			position: relative;
+			height: 160px; background-color: #fff;
+		}
+		/* 로고 영역 */
+		.logo{
+			position: absolute; top: 50%; left: 21px; margin-top: -32px;
+		}
+		.icon-logo{
+			display: inline-block;
+   		width: 222px; height: 52px;
+   		background-position: 0 -158px;
+		}
+		/* 우측 상단 서비스 영역 */
+		.service-area{
+			position: absolute; top: 12px; right: 27px;
+		}
+		/* 우측상단-시작페이지로 */
+		.link-set{
+			float: left;
+   	 	font-size: 11px; color: #404040;
+		}
+		.link-set:hover{text-decoration: underline;}
+		.icon-link-set{
+			display: inline-block;
+   	 	width: 26px; height: 26px; margin: -3px 0 0 3px;
+    	background-position: -308px -345px; vertical-align: top;
+		}
+		.sa_bar{
+			float: left;
+    	width: 1px; height: 10px;
+  		margin: 3px 7px; background-color: #e4e8eb;
+		}
+		/* 우측 상단-쥬니버네이버 */
+		.link-jrnaver{float: left;}
+		.icon-jrnaver{
+			display: inline-block;
+    	width: 60px; height: 10px; margin: 3px 3px 2px;
+    	background-position: -262px -330px; vertical-align: top;
+		}
+		.link-jrnaver:hover .icon-jrnaver{
+    	background-position: -200px -330px;
+		}
+		/* 우측 상단-해피빈 */
+		.link-happybin{float: left; margin-left: 6px;}
+		.icon-happybin{
+			display: inline-block;
+   		width: 34px; height: 11px;
+   		background-position: -369px -299px; vertical-align: top; margin: 3px 3px 2px;
+		}
+		.link-happybin:hover .icon-happybin{
+    	background-position: -380px -199px;
+		}
+		/* 검색창 영역 */
+		.search-area{
+			position: absolute; box-sizing: border-box; height: 56px;
+    	top: 50%; left: 268px; margin-top: -28px;	
+		}
+		.green-window{
+			position: relative; box-sizing: border-box;
+    	width: 586px; height: 56px;
+    	border: 2px solid #19ce60; border-radius: 2px;
+		}
+		/* 검색창-검색 */
+		.input-text{
+			width: 474px; height: 50px; box-sizing: border-box;
+  		padding: 13px 15px; margin: 1px;
+    	background-color: #fff;
+    	font-size: 18px; color: #000; font-weight: 700; line-height: 24px;
+    	outline: 0; border: 0;
+		}
+		/* 검색창-검색버튼 */
+		.btn-submit{
+			position: absolute; box-sizing: border-box;
+    	top: 0; right: 0; bottom: 0; 
+   		width: 56px; height: 56px; background-color: #19ce60;
+    	border: 0; border-radius: 2px;
+   		cursor: pointer;	
+		}
+		.icon-submit{
+			display: inline-block;
+    	width: 22px; height: 22px;
+  		background-position: -420px 0; 
+		}
+		/* 검색창-가상키보드 */
+		.btn-keyboard{
+			position: absolute; top: 0; right: 84px; bottom: 0;
+    	width: 36px;
+		}
+		.icon-keyboard{
+			position: absolute; top: 50%; left: 50%;
+    	display: inline-block;
+    	width: 20px; height: 12px;
+    	background-position: -420px -402px; vertical-align: top;
+    	margin: -6px 0 0 -10px;
+		}
+		.search-con .btn-keyboard:hover .icon-keyboard{
+			background-position: -206px -389px ;
+		}
+		/* 검색창-자동완성-버튼 */
+		.btn-auto{
+			position: absolute; top: 0; bottom: 0; right: 64px;
+			width: 22px;
+		}
+		.btn-auto .icon-auto{
+			width: 10px; height:5px; display: inline-block;
+			position: absolute; top: 50%; left: 50%; 
+			margin: -2px 0 0 -5px; 
+			background-position: -408px -100px;
+		}
+		/* 검색창-자동완성-창*/
+		.search-con .auto-frame{
+			border: 1px solid #e4e7e8; border-top: 0; 
+			border-radius: 0 0 6px 6px; background-color: #fff;
+			box-shadow: 0 2px 3px 0 rgb(0, 1, 3, 0.07);
+			display: none;	
+		}
+		.auto-frame .atf-footer{
+			height: 40px; box-sizing: border-box;
+			border-top: 1px solid #f1f4f6; border-radius: 0 0 6px 6px;
+			background-color: #f9fafb;
+			line-height: 37px; font-size: 13px;
+		}
+		.atf-footer .side-opt-area{
+			float: left; padding-left: 12px;
+		}
+		.atf-footer .rside-opt-area{
+			float: right; padding-right: 12px;
+		}
+		.atf-footer a{
+			float: left; padding: 0 6px; color: gray; 
+		}
+		.atf-footer .opt-item:hover .opt-item{
+			text-decoration: underline;
+		}
+		.atf-footer .report{color: #03c75a}
+		.atf-footer .report::before{
+			width: 1px; height: 11px; float: left;
+			margin-top: 14px; content: ''; background-color: #e2e2e2;
+			margin-left: -6px;
+		}
+		/* 메뉴바 */
+		.menu-con{
+			height: 52px; position: relative;
+			border-top: 1px solid #e4e8eb;	
+			box-shadow: 0 1px 3px 0 rgb(0, 0, 0, 0.2);
+		 }
+		 .menu-con .menu{
+			position: relative; width: 1130px;
+   		padding: 0 30px; margin: 0 auto;
+		 }
+		 .menu .group-nav{
+			position: relative;
+			padding: 11px 270px 11px 0;
+		 }
+		/* 메뉴바-초록색 메뉴 */
+		 .group-nav .list-menu{
+			float: left;
+			font-size: 15px; line-height: 30px; font-weight: 700;
+			color: #000; letter-spacing: -.3px;
+		 }
+		.green-menu a{color: #03c75a;}
+		 .list-menu .menu-item{
+				float: left;
+		 }
+		 .menu-item .icon-mail{
+			display: inline-block; width: 21px; height: 21px;
+			background-position: -420px -73px; vertical-align: top;
+			margin: 3px 9px 0 0;
+		 }
+		 .list-menu .menu-item+.menu-item{
+			margin-left: 12px;
+		 }
+		 .menu-item .shopping, .menu-item .shopping-live{
+			padding: 5px 0;}
+		 .menu-item .icon-shopping{
+			display: inline-block; width: 24px; height: 20px;
+			background-position: -154px -389px; vertical-align: top;
+			margin-top: 5px; 
+		 }
+		 .menu-item .icon-shopping-live{
+			display: inline-block; width: 54px; height: 20px;
+			background-position: -202px -299px; vertical-align: top;
+			margin-top: 5px; 
+		 }
+		 .menu-item .icon-tv{
+			display: inline-block; width: 12px; height: 14px;
+   		background-position: -444px -49px; vertical-align: top;
+    	margin: 9px 2px 0 0;
+		 }
+		/* 메뉴바-검은색 메뉴 */
+		.menu .list-menu+.list-menu{margin-left: 12px;}
+		.black-menu a{color: #000;}
+		/* 메뉴바-더보기 */
+		.group-nav .btn-more{
+			float: left; margin-left: 17px;
+    	font-size: 13px; line-height: 30px; 
+    	text-align: right; color: #202020;
+		}
+		.group-nav .btn-more:hover .btn-more{
+			text-decoration: underline;
+		}
+		.group-nav .btn-more::after{
+			display: inline-block; width: 11px; height: 7px;
+    	background-position: -444px -339px; vertical-align: top;
+    	content: ''; margin-left: 7px; vertical-align: 2px;
+		}
+
+		.content-con{height: 500px; background-color: skyblue;}
+		.footer-con{height: 424px; background-color: purple;}
+		 
+		/* clearfix 공용 */
+		.search-con .box-service::after,
+		.list-menu .menu-item::after{
+			clear: both; display: block; content: '';
+		}
+		/* 공용 이미지 */
+		.icon-submit,
+	  .icon-logo, 
+		.icon-link-set, 
+		.icon-jrnaver, 
+		.icon-happybin,
+		.icon-keyboard, 
+		.icon-auto,
+		.menu-item .icon-mail,
+		.menu-item .icon-shopping,
+		.menu-item .icon-shopping-live,
+		.menu-item .icon-tv,
+		.group-nav .btn-more::after
+		{
+			background-image: url(https://s.pstatic.net/static/www/img/uit/sp_main_4f8ccb.png);
+			background-size: 457px 434px ;
+		}
+	</style>
+</head>
+<body>
+	<div class="fixed-con search-con" >
+		<!-- 로고 -->
+		<div class="logo-area">
+			<a href="http://www.naver.com" class="logo"><i class="icon-logo"></i></a>
+		</div>
+		<!-- 우측 상단 메뉴 -->
+		<div class="service-area">
+			<a href="https://help.naver.com/support/contents/contents.help?serviceNo=1074&categoryNo=16719&from=alias" class="link-set">
+				네이버를 시작페이지로
+				<i class="icon-link-set"></i>
+			</a>
+			<i class="sa_bar"></i>
+			<a href="https://jr.naver.com/" class="link-jrnaver"><i class="icon-jrnaver"></i></a>
+			<a href="https://happybean.naver.com/" class="link-happybin"><i class="icon-happybin"></i></a>
+		</div>
+		<!-- 검색창 -->
+		<div class="search-area">
+			<form>
+				<!-- 검색창: 검색 -->
+				<div class="green-window">
+					<input type="text" class="input-text">
+				</div>
+				<!-- 검색창: 검색 버튼 -->
+				<button type="submit" class="btn-submit"><i class="icon-submit"></i></button>
+			</form>
+			<!-- 검색창: 가상키보드 -->
+			<a href="#" class="btn-keyboard"><i class="icon-keyboard"></i></a>
+			<!-- 검색창: 자동완성 -->
+			<div class="auto">
+				<a href="#" class="btn-auto"><i class="icon-auto"></i></a>
+				<!-- 자동완성: 창 -->
+				<div class="auto-frame">
+					<div class="atf-footer">
+						<span class="side-opt-area">
+							<span class="opt-item">
+								<a class="help" href="https://help.naver.com/support/service/main.help?serviceNo=605&categoryNo=1987">도움말</a>
+								<a class="report" href="">신고</a>
+							</span>					
+						</span>
+						<span class="rside-opt-area">
+							<span class="opt-item">
+								<a class="close-suggest" href="#">자동완성 끄기</a>
+							</span>
+						</span>
+					</div> <!-- 자동완성:footer end  -->
+				</div> <!-- 자동완성:auto-frame(창) end  -->
+			</div> <!-- 검색창:자동완성 end  --> 
+		</div> <!-- 검색창 end  -->
+	</div> <!-- search-con end -->
+
+	<div class="menu-con">
+		<!-- 메뉴바 -->
+		<div class="menu">
+			<div class="group-nav">
+				<!-- 메뉴바: 초록색 메뉴 -->
+				<ul class="list-menu green-menu">
+					<li class="menu-item">
+						<a href="https://mail.naver.com/" class="mail"><i class="icon-mail"></i>메일</a>
+					</li>
+					<li class="menu-item">
+						<a href="https://section.cafe.naver.com/" class="cafe">카페</a>
+					</li>
+					<li class="menu-item">
+						<a href="https://section.blog.naver.com/" class="blog">블로그</a>
+					</li>
+					<li class="menu-item">
+						<a href="https://kin.naver.com/" class="kin">지식iN</a>
+					</li>
+					<li class="menu-item">
+						<a href="https://shopping.naver.com/" class="shopping"><i class="icon-shopping"></i></a>
+					</li>
+					<li class="menu-item">
+						<a href="https://shoppinglive.naver.com/home" class="shopping-live"><i class="icon-shopping-live"></i></a>
+					</li>
+					<li class="menu-item">
+						<a href="https://order.pay.naver.com/home" class="pay">Pay</a>
+					</li>
+					<li class="menu-item">
+						<a href="https://tv.naver.com/" class="tv-cast"><i class="icon-tv"></i>TV</a>
+					</li>
+				</ul> <!-- 메뉴바: 초록색 메뉴 end -->
+				<!-- 메뉴바: 검은색 메뉴 -->
+				<ul class="list-menu black-menu">
+					<li class="menu-item">
+						<a href="https://dict.naver.com/" class="dictionary">사전</a>
+					</li>
+					<li class="menu-item">
+						<a href="https://news.naver.com/" class="news">뉴스</a>
+					</li>
+					<li class="menu-item">
+						<a href="https://finance.naver.com/" class="finance">증권</a>
+					</li>
+					<li class="menu-item">
+						<a href="https://land.naver.com/" class="land">부동산</a>
+					</li>
+					<li class="menu-item">
+						<a href="https://map.naver.com/" class="map">지도</a>
+					</li>
+					<li class="menu-item">
+						<a href="https://vibe.naver.com/home" class="vibe">VIBE</a>
+					</li>
+					<li class="menu-item">
+						<a href="https://book.naver.com/home" class="book">책</a>
+					</li>
+					<li class="menu-item">
+						<a href="https://comic.naver.com/" class="webtoon">웹툰</a>
+					</li>
+				</ul> <!-- 메뉴바: 검은색 메뉴 end -->
+				<!-- 메뉴바: 더보기 -->
+				<a href="#" class="btn-more">더보기</a>
+			</div>
+		</div> <!-- menu end -->
+	</div><!-- menu-con end -->
+	<div class="fixed-con content-con"></div>
+	<footer class="footer-con]"></footer>
+</body>
+</html>
