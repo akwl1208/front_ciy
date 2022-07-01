@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>t_naver</title>
+	<style>
+		*{padding: 0; margin: 0;}
+		ul,ol,li{list-style: none;}
+		a{text-decoration: none;}
+
+		.fixed-con{
+			width: 1190px; margin: 0 auto; box-sizing: border-box;
+			padding: 0 30px;}
+		.menu-con, .footer{min-width: 1190px;}
+
+		.search-con{
+			height: 160px; position: relative; 
+		}
+		.box-search{
+			width: 586px; height: 56px; position: absolute;
+			left: 268px; top: 50%; margin-top: -28px;
+		}
+		.box-search-in{
+			height: 100%; box-sizing: border-box; background-color: white;
+			border: 2px solid #19ce60; border-radius: 2px;
+		}
+		.input-search{
+			border: 0; outline: 0;
+			width: 474px; height: 50px; box-sizing: border-box;
+			padding: 13px 15px; margin: 1px;
+			font-size: 18px; line-height: 24px; font-weight: bold;
+		}
+		.btn-submit{
+			width: 56px; height: 56px; box-sizing: border-box;
+			position: absolute; top: 0; right: 0;
+			background-color: #19ce60; 
+			border: 0; outline: 0; border-radius: 2px;
+			cursor: pointer;
+		}
+		.icon-search{
+			display: inline-block;
+    	width: 22px; height: 22px;
+  		background-position: -420px 0;    	
+		}
+		/* 로고 */
+		.link-naver{
+			width: 222px; height: 52px;
+			position: absolute; top: 50%; left: 21px; margin-top: -32px;
+			background-position: 0 -158px;
+		}
+		/* 우측상단 링크 */
+		.search-con .box-service{
+			position: absolute; top: 12px; right: 27px;
+		}
+		.search-con .link-setnaver{
+			font-size: 11px; color: #404040; 
+		}
+		.search-con .box-service>*{
+			float: left;
+		}
+		.search-con .link-setnaver::after{
+			width: 26px; height: 26px; display: inline-block;
+			content: ''; background-position: -308px -345px; vertical-align: top;
+			margin: -3px 0 0 3px;
+		}
+		.search-con .box-service:hover{
+			text-decoration: underline;
+		}
+
+
+		.menu-con{height: 52px; background-color: orange;}
+		.content-con{height: 500px; background-color: skyblue;}
+		.footer-con{height: 424px; background-color: purple;}
+		/* clearfix 공용 */
+		.search-con .box-service::after{
+			clear: both; display: block; content: '';
+		}
+		/* 배경이미지 공용 */
+		.icon-search, .link-naver, .search-con .link-setnaver::after {
+			background-image: url(https://s.pstatic.net/static/www/img/uit/sp_main_4f8ccb.png);
+			background-size: 457px 434px ;
+		}
+	</style>
+</head>
+<body>
+	<div class="fixed-con search-con">
+		<!-- 검색창 -->
+		<form action="https://search.naver.com/search.naver" class="box-search">
+			<div class="box-search-in">
+				<input type="text" class="input-search" name="query">
+				<!-- -input-search end -->
+			</div>
+			<!-- box-search-in end -->
+			<div class="box-auto"></div>
+			<!-- box-auto end -->
+			<button type="submit" class="btn-submit"><i class="icon-search"></i></button>
+			<!-- btn-submint  end -->
+		</form>
+		<!-- box-search end -->
+		<!-- 로고 -->
+		<a href="http://naver.com" class="link-naver"></a>
+		<!-- link-naver end -->
+		<!-- 우측상단 메뉴 -->
+		<div class="box-service">
+			<a href="#" class="link-setnaver">네이버를 시작페이지로</a>
+			<i class="bar"></i>
+			<a href="#" class="link-jrnaver"></a>
+			<a href="#" class="link-happybin"></a>
+		</div>
+	</div>
+	<!-- search-con end -->
+	<div class="menu-con"></div>
+	<!-- menu-con end -->
+	<div class="fixed-con content-con"></div>
+	<!-- content-con end -->
+	<footer class="footer-con]"></footer>
+	<!-- footer-con end -->
+</body>
+</html>
