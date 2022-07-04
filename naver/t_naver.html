@@ -5,221 +5,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>t_naver</title>
-	<style>
-		*{padding: 0; margin: 0;}
-		ul,ol,li{list-style: none;}
-		a{text-decoration: none;}
-
-		.fixed-con{
-			width: 1190px; box-sizing: border-box;
-			margin: 0 auto; padding: 0 30px;}
-		.menu-con, .footer{min-width: 1190px;}
-
-		.search-con{
-			height: 160px; position: relative;
-		}
-		/* 검색창 */
-		.box-search{
-			width: 586px; height: 56px; position: absolute;
-			left: 268px; top: 50%; margin-top: -28px;
-		}
-		.box-search-in{
-			height: 100%; box-sizing: border-box; background-color: white;
-			border: 2px solid #19ce60; border-radius: 2px;
-		}
-		.input-search{
-			border: 0; outline: 0;
-			width: 474px; height: 50px; box-sizing: border-box;
-			padding: 13px 15px; margin: 1px;
-			font-size: 18px; line-height: 24px; font-weight: bold;
-		}
-		.btn-submit{
-			width: 56px; height: 55px; box-sizing: border-box;
-			position: absolute; top: 0; right: 0;
-			background-color: #19ce60; 
-			border: 0; outline: 0; border-radius: 2px;
-			cursor: pointer;
-		}
-		.icon-search{
-			display: inline-block;
-    	width: 22px; height: 22px;
-  		background-position: -420px 0;    	
-		}
-		/* 로고 */
-		.link-naver{
-			width: 222px; height: 52px;
-			position: absolute; top: 50%; left: 21px; margin-top: -32px;
-			background-position: 0 -158px;
-		}
-		/* 우측상단 링크 */
-		.search-con .box-service{
-			position: absolute; top: 12px; right: 27px;
-		}
-		.search-con .link-setnaver{
-			font-size: 11px; color: #404040; 
-		}
-		.search-con .box-service>*{
-			float: left;
-		}
-		.search-con .link-setnaver::after{
-			width: 26px; height: 26px; display: inline-block;
-			content: ''; background-position: -308px -345px; vertical-align: top;
-			margin: -3px 0 0 3px;
-		}
-		.search-con .box-service:hover{
-			text-decoration: underline;
-		}
-		.search-con .bar{
-			width: 1px; height: 10px;
-			background-color: #e4e8eb;
-			margin: 3px 7px ;
-		}
-		.icon-jrnaver{
-			display: inline-block;
-			width: 60px; height: 10px;
-			margin: 3px; background-position: -262px -330px; vertical-align: top;
-		}
-		.link-happybin{
-			margin-left: 6px;
-		}
-		.icon-happybin{
-			display: inline-block;
-			width: 34px; height: 11px;
-			margin: 3px 3px 2px; background-position: -369px -299px;
-			vertical-align: top;
-		}
-		.link-jrnaver:hover .icon-jrnaver{
-			background-position: -200px -330px;
-		}
-		.link-happybin:hover .icon-happybin{
-			background-position: -380px -199px;
-		}
-		/* 가상키보드 */
-		.search-con .btn-kbd{
-			position: absolute; top: 0; bottom: 0; right: 84px;
-			width: 36px;
-		}
-		.search-con .icon-kbd{
-			width: 20px; height: 12px; display: inline-block;
-			position: absolute; top: 50%; left: 50%; 
-			margin: -6px 0 0 -10px; 
-			background-position: -420px -402px;
-		}
-		.search-con .btn-kbd:hover .icon-kbd{
-			background-position: -206px -389px ;
-		}
-		/* 자동완성-버튼 */
-		.search-con .btn-auto-down{
-			position: absolute; top: 0; bottom: 0; right: 64px;
-			width: 22px;
-		}
-		.search-con .icon-auto{
-			width: 10px; height:5px; display: inline-block;
-			position: absolute; top: 50%; left: 50%; 
-			margin: -2px 0 0 -5px; 
-			background-position: -408px -100px;
-		}
-		.search-con .btn-auto-down.up .icon-auto{
-			background-position: -408px -93px;
-		}
-		/* 자동완성-창 */
-		.search-con .box-auto-content{
-			border: 1px solid #e4e7e8; border-top: 0; 
-			border-radius: 0 0 6px 6px; background-color: #fff;
-			box-shadow: 0 2px 3px 0 rgb(0, 1, 3, 0.07);	
-			display: none;	
-		}
-		.search-con .box-auto-content .box-auto-footer{
-			height: 40px; box-sizing: border-box;
-			border-top: 1px solid #f1f4f6; border-radius: 0 0 6px 6px;
-			background-color: #f9fafb;
-			line-height: 37px; font-size: 13px;
-		}
-		.box-auto-footer .box-left{
-			float: left; padding-left: 12px;
-		}
-		.box-auto-footer .box-right{
-			float: right; padding-right: 12px;
-		}
-		.box-auto-footer .item{
-			float: left; padding: 0 6px; color: gray;
-		}
-		.box-auto-footer .report{color: #03c75a}
-		.box-auto-footer .item+.item::before{
-			width: 1px; height: 11px; float: left;
-			margin-top: 14px; content: ''; background-color: #e2e2e2;
-			margin-left: -6px;
-		}
-		/* 검색창 아래 메뉴바 */
-		.menu-con{
-			height: 52px; background-color: white;
-			border-top: 1px solid #e4e8eb;
-		}
-		.menu-con .box-menu{
-			padding: 11px 0; float: left;
-		}
-		.menu-con .box-menu .list-menu{
-			font-size: 15px; line-height: 30px; float: left;
-			font-weight: bold; letter-spacing: -0.3px;
-		}
-		.menu-con .list-menu+.list-menu{
-			margin-left: 12px;
-		}
-		.menu-con .list-menu .menu-item{
-			float: left;
-		}
-		.menu-con .list-menu .menu-item+.menu-item{
-			margin-left: 12px;
-		}
-		.menu-con .list-menu .menu-item .link-menu{
-			color: black;
-		}
-		.menu-con .list-menu.fixed .menu-item .link-menu{
-			color: #03c75a;
-		}
-		.menu-con .list-menu .mail::before{
-			content: ''; display: inline-block; width: 21px; height: 21px;
-			background-position: -420px -73px;
-			vertical-align: top; margin: 3px 9px 0 0;
-		}
-		.menu-con .list-menu .shopping::before{
-			content: ''; display: block; width: 24px; height: 20px;
-			background-position: -154px -389px; margin-top: 5px;
-		}
-		.menu-con .list-menu .shopping-live::before{
-			content: ''; display: block; width: 54px; height: 20px;
-			background-position: -202px -299px; margin-top: 5px;
-		}
-		.menu-con .list-menu .tv::before{
-			content: ''; display: inline-block; width: 12px; height: 14px;
-			background-position: -444px -49px;
-			vertical-align: top; margin: 9px 2px 0 0;
-		}
-		
-		.content-con{height: 500px; background-color: skyblue;}
-		.footer-con{height: 424px; background-color: purple;}
-		
-		/* clearfix 공용 */
-		.search-con .box-service::after{
-			border-top: 1px solid #f1f4f6;
-			clear: both; display: block; content: '';
-		}
-		/* 배경이미지 공용 */
-		.icon-search,
-		.link-naver,
-		.search-con .link-setnaver::after,
-		.icon-jrnaver,
-		.icon-happybin, 
-		.search-con .icon-kbd,
-		.search-con .icon-auto,
-		.menu-con .list-menu .mail::before,
-		.menu-con .list-menu .shopping::before,
-		.menu-con .list-menu .shopping-live::before,
-		.menu-con .list-menu .tv::before{
-			background-image: url(https://s.pstatic.net/static/www/img/uit/sp_main_4f8ccb.png);
-			background-size: 457px 434px ;
-		}
-	</style>
+	<!-- css파일 연결 -->
+	<link rel="stylesheet" href="t_naver.css">
 </head>
 <body>
 	<div class="fixed-con search-con">
@@ -281,7 +68,7 @@
 					<li class="menu-item"><a href="" class="link-menu shopping-live"></a></li>
 					<li class="menu-item"><a href="" class="link-menu">Pay</a></li>
 					<li class="menu-item"><a href="" class="link-menu tv">TV</a></li>
-				</ul> <!-- list-menu fixed end -->
+				</ul> <!-- list-menu fixed(초록색 메뉴) end -->
 				<ul class="list-menu">
 					<li class="menu-item"><a href="" class="link-menu">사전</a></li>
 					<li class="menu-item"><a href="" class="link-menu">뉴스</a></li>
@@ -291,15 +78,58 @@
 					<li class="menu-item"><a href="" class="link-menu">VIBE</a></li>
 					<li class="menu-item"><a href="" class="link-menu">책</a></li>
 					<li class="menu-item"><a href="" class="link-menu">웹툰</a></li>
-				</ul> <!-- list-menu end -->
-				<a href="#" class="btn-more"></a>
+				</ul> <!-- list-menu(검은색 메뉴) end -->
+				<!-- btn-more에 fold 클래스를 추가하면 접기 표시됨 -->
+				<a href="#" class="btn-more">
+					<span class="title">더보기</span>
+					<span class="title">접기</span>
+				</a>
+				<!-- btn-more(더보기 버튼) end -->
 			</div> <!-- box-menu end -->
 		</div> <!-- fixed-con end -->
 	</div>
 	<!-- menu-con end -->
-	<div class="fixed-con content-con"></div>
+	<div class="fixed-con content-con">
+		<div class="box-left">
+			<div class="box-left1">
+				<a target="_blank" class="link-ad" href="https://siape.veta.naver.com/fxclick?eu=EU10041889&calp=1&oj=A4YjrwVVtw%2BqQGPTtHm1iOLbd5GNJx5CJDGmoNCfwFiJVqbZCGmfc8S6i%2BHdpldwJ5gYVgMAra0%2BN6j6N3f3QTQIBWiqOOMO3Jw27fAg6BNtonaOyZyAMUxUYL%2B0tlmrQpGydowokf19M1n80vfx2x2oC1tyUUZe5ydOLSqhlBZ68BDFppVgbWSaIPAxIwfRtyUYJcs1t%2BHvp15DhifnzrXtlkJ94le6THOFSrBMf%2FYUOCvt6qVUV5iGWTUV%2Fe8L&ac=8589716&src=5919311&br=3911454&evtcd=P901&x_ti=1308&tb=&oid=&sid1=&sid2=&rk=70272d2a7ad54866d7555a0bd95fed1f&eltts=CTwGYGBRcqxqMAWMGwk3yA%3D%3D&lu=&brs=Y&" >
+					<img width=750px height=auto src="https://ssl.pstatic.net/melona/libs/1394/1394210/f1ea52775f895e8047e2_20220701123455548.jpg" alt="광고">
+				</a>
+			</div> 
+			<!-- box-left1(광고) end -->
+			<div class="box-left2">
+				<div class="box-issue">
+					<a href="#" class="link-media">연합뉴스</a>
+					<ul class="list-issue">
+						<li class="item-issue">
+							<a href="#" class="link-issue">21대 국회 후반기 의장에 5선 김진표…여야 합의선출</a>
+						</li>
+						<li class="item-issue">
+							<a href="#" class="link-issue">안녕하세요. 자바 수업입니다</a>
+						</li>
+					</ul>
+				</div>
+				<div class="box-direct"></div>
+			</div><!-- box-left2(뉴스 롤링)) end -->
+		</div>
+		<!-- box-left end -->
+		<div class="box-right">
+			<div class="box-right1">
+				<p class="msg-login">네이버를 더 안전하고 편리하게 이용하세요.</p>
+				<a href="#" class="link-login"><i class="icon-login"></i>로그인</a>
+				<div class="box-sub">
+					<a href="#" class="link-find-id">아이디</a>
+					<a href="#" class="link-find-pw">비밀번호찾기</a>
+					<a href="#" class="link-signup">회원가입</a>
+
+				</div>
+			</div>
+			<!-- box-right1(로그인) -->
+		</div>
+		<!-- box-right end -->
+	</div>
 	<!-- content-con end -->
-	<footer class="footer-con]"></footer>
+	<footer class="footer-con"></footer>
 	<!-- footer-con end -->
 </body>
 </html>
