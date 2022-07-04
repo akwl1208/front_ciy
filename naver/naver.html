@@ -5,251 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>naver</title>
-	<style>
-		*{padding: 0; margin: 0;}
-		ul,ol,li{list-style: none;}
-		a{text-decoration: none;}
-
-		.fixed-con{
-			width: 1190px; margin: 0 auto; box-sizing: border-box;
-			padding: 0 30px; 
-		}
-		.menu-con, .footer{min-width: 1190px;}
-
-		.search-con{
-			position: relative;
-			height: 160px; background-color: #fff;
-		}
-		/* 로고 영역 */
-		.logo{
-			position: absolute; top: 50%; left: 21px; margin-top: -32px;
-		}
-		.icon-logo{
-			display: inline-block;
-   		width: 222px; height: 52px;
-   		background-position: 0 -158px;
-		}
-		/* 우측 상단 서비스 영역 */
-		.service-area{
-			position: absolute; top: 12px; right: 27px;
-		}
-		/* 우측상단-시작페이지로 */
-		.link-set{
-			float: left;
-   	 	font-size: 11px; color: #404040;
-		}
-		.link-set:hover{text-decoration: underline;}
-		.icon-link-set{
-			display: inline-block;
-   	 	width: 26px; height: 26px; margin: -3px 0 0 3px;
-    	background-position: -308px -345px; vertical-align: top;
-		}
-		.sa_bar{
-			float: left;
-    	width: 1px; height: 10px;
-  		margin: 3px 7px; background-color: #e4e8eb;
-		}
-		/* 우측 상단-쥬니버네이버 */
-		.link-jrnaver{float: left;}
-		.icon-jrnaver{
-			display: inline-block;
-    	width: 60px; height: 10px; margin: 3px 3px 2px;
-    	background-position: -262px -330px; vertical-align: top;
-		}
-		.link-jrnaver:hover .icon-jrnaver{
-    	background-position: -200px -330px;
-		}
-		/* 우측 상단-해피빈 */
-		.link-happybin{float: left; margin-left: 6px;}
-		.icon-happybin{
-			display: inline-block;
-   		width: 34px; height: 11px;
-   		background-position: -369px -299px; vertical-align: top; margin: 3px 3px 2px;
-		}
-		.link-happybin:hover .icon-happybin{
-    	background-position: -380px -199px;
-		}
-		/* 검색창 영역 */
-		.search-area{
-			position: absolute; box-sizing: border-box; height: 56px;
-    	top: 50%; left: 268px; margin-top: -28px;	
-		}
-		.green-window{
-			position: relative; box-sizing: border-box;
-    	width: 586px; height: 56px;
-    	border: 2px solid #19ce60; border-radius: 2px;
-		}
-		/* 검색창-검색 */
-		.input-text{
-			width: 474px; height: 50px; box-sizing: border-box;
-  		padding: 13px 15px; margin: 1px;
-    	background-color: #fff;
-    	font-size: 18px; color: #000; font-weight: 700; line-height: 24px;
-    	outline: 0; border: 0;
-		}
-		/* 검색창-검색버튼 */
-		.btn-submit{
-			position: absolute; box-sizing: border-box;
-    	top: 0; right: 0; bottom: 0; 
-   		width: 56px; height: 56px; background-color: #19ce60;
-    	border: 0; border-radius: 2px;
-   		cursor: pointer;	
-		}
-		.icon-submit{
-			display: inline-block;
-    	width: 22px; height: 22px;
-  		background-position: -420px 0; 
-		}
-		/* 검색창-가상키보드 */
-		.btn-keyboard{
-			position: absolute; top: 0; right: 84px; bottom: 0;
-    	width: 36px;
-		}
-		.icon-keyboard{
-			position: absolute; top: 50%; left: 50%;
-    	display: inline-block;
-    	width: 20px; height: 12px;
-    	background-position: -420px -402px; vertical-align: top;
-    	margin: -6px 0 0 -10px;
-		}
-		.search-con .btn-keyboard:hover .icon-keyboard{
-			background-position: -206px -389px ;
-		}
-		/* 검색창-자동완성-버튼 */
-		.btn-auto{
-			position: absolute; top: 0; bottom: 0; right: 64px;
-			width: 22px;
-		}
-		.btn-auto .icon-auto{
-			width: 10px; height:5px; display: inline-block;
-			position: absolute; top: 50%; left: 50%; 
-			margin: -2px 0 0 -5px; 
-			background-position: -408px -100px;
-		}
-		/* 검색창-자동완성-창*/
-		.search-con .auto-frame{
-			border: 1px solid #e4e7e8; border-top: 0; 
-			border-radius: 0 0 6px 6px; background-color: #fff;
-			box-shadow: 0 2px 3px 0 rgb(0, 1, 3, 0.07);
-			display: none;	
-		}
-		.auto-frame .atf-footer{
-			height: 40px; box-sizing: border-box;
-			border-top: 1px solid #f1f4f6; border-radius: 0 0 6px 6px;
-			background-color: #f9fafb;
-			line-height: 37px; font-size: 13px;
-		}
-		.atf-footer .side-opt-area{
-			float: left; padding-left: 12px;
-		}
-		.atf-footer .rside-opt-area{
-			float: right; padding-right: 12px;
-		}
-		.atf-footer a{
-			float: left; padding: 0 6px; color: gray; 
-		}
-		.atf-footer .opt-item:hover .opt-item{
-			text-decoration: underline;
-		}
-		.atf-footer .report{color: #03c75a}
-		.atf-footer .report::before{
-			width: 1px; height: 11px; float: left;
-			margin-top: 14px; content: ''; background-color: #e2e2e2;
-			margin-left: -6px;
-		}
-		/* 메뉴바 */
-		.menu-con{
-			height: 52px; position: relative;
-			border-top: 1px solid #e4e8eb;	
-			box-shadow: 0 1px 3px 0 rgb(0, 0, 0, 0.2);
-		 }
-		 .menu-con .menu{
-			position: relative; width: 1130px;
-   		padding: 0 30px; margin: 0 auto;
-		 }
-		 .menu .group-nav{
-			position: relative;
-			padding: 11px 270px 11px 0;
-		 }
-		/* 메뉴바-초록색 메뉴 */
-		 .group-nav .list-menu{
-			float: left;
-			font-size: 15px; line-height: 30px; font-weight: 700;
-			color: #000; letter-spacing: -.3px;
-		 }
-		.green-menu a{color: #03c75a;}
-		 .list-menu .menu-item{
-				float: left;
-		 }
-		 .menu-item .icon-mail{
-			display: inline-block; width: 21px; height: 21px;
-			background-position: -420px -73px; vertical-align: top;
-			margin: 3px 9px 0 0;
-		 }
-		 .list-menu .menu-item+.menu-item{
-			margin-left: 12px;
-		 }
-		 .menu-item .shopping, .menu-item .shopping-live{
-			padding: 5px 0;}
-		 .menu-item .icon-shopping{
-			display: inline-block; width: 24px; height: 20px;
-			background-position: -154px -389px; vertical-align: top;
-			margin-top: 5px; 
-		 }
-		 .menu-item .icon-shopping-live{
-			display: inline-block; width: 54px; height: 20px;
-			background-position: -202px -299px; vertical-align: top;
-			margin-top: 5px; 
-		 }
-		 .menu-item .icon-tv{
-			display: inline-block; width: 12px; height: 14px;
-   		background-position: -444px -49px; vertical-align: top;
-    	margin: 9px 2px 0 0;
-		 }
-		/* 메뉴바-검은색 메뉴 */
-		.menu .list-menu+.list-menu{margin-left: 12px;}
-		.black-menu a{color: #000;}
-		/* 메뉴바-더보기 */
-		.group-nav .btn-more{
-			float: left; margin-left: 17px;
-    	font-size: 13px; line-height: 30px; 
-    	text-align: right; color: #202020;
-		}
-		.group-nav .btn-more:hover .btn-more{
-			text-decoration: underline;
-		}
-		.group-nav .btn-more::after{
-			display: inline-block; width: 11px; height: 7px;
-    	background-position: -444px -339px; vertical-align: top;
-    	content: ''; margin-left: 7px; vertical-align: 2px;
-		}
-
-		.content-con{height: 500px; background-color: skyblue;}
-		.footer-con{height: 424px; background-color: purple;}
-		 
-		/* clearfix 공용 */
-		.search-con .box-service::after,
-		.list-menu .menu-item::after{
-			clear: both; display: block; content: '';
-		}
-		/* 공용 이미지 */
-		.icon-submit,
-	  .icon-logo, 
-		.icon-link-set, 
-		.icon-jrnaver, 
-		.icon-happybin,
-		.icon-keyboard, 
-		.icon-auto,
-		.menu-item .icon-mail,
-		.menu-item .icon-shopping,
-		.menu-item .icon-shopping-live,
-		.menu-item .icon-tv,
-		.group-nav .btn-more::after
-		{
-			background-image: url(https://s.pstatic.net/static/www/img/uit/sp_main_4f8ccb.png);
-			background-size: 457px 434px ;
-		}
-	</style>
+	<link rel="stylesheet" href="naver.css">
 </head>
 <body>
 	<div class="fixed-con search-con" >
@@ -361,11 +117,62 @@
 					</li>
 				</ul> <!-- 메뉴바: 검은색 메뉴 end -->
 				<!-- 메뉴바: 더보기 -->
-				<a href="#" class="btn-more">더보기</a>
+				<a href="#" class="btn-more"><span class="title">더보기</span><span class="title">접기</span></a>
 			</div>
 		</div> <!-- menu end -->
 	</div><!-- menu-con end -->
-	<div class="fixed-con content-con"></div>
+
+	<div class="fixed-con content-con">
+		<!-- 컨텐츠 왼쪽 -->
+		<div class="column-left">
+			<!-- 컨텐츠 왼쪽: 광고 -->
+			<div class="ad-area">
+				<a target="_blank" class="link-ad" href="https://siape.veta.naver.com/fxclick?eu=EU10041889&calp=1&oj=A4YjrwVVtw%2BqQGPTtHm1iOLbd5GNJx5CJDGmoNCfwFiJVqbZCGmfc8S6i%2BHdpldwJ5gYVgMAra0%2BN6j6N3f3QTQIBWiqOOMO3Jw27fAg6BNtonaOyZyAMUxUYL%2B0tlmrQpGydowokf19M1n80vfx2x2oC1tyUUZe5ydOLSqhlBZ68BDFppVgbWSaIPAxIwfRtyUYJcs1t%2BHvp15DhifnzrXtlkJ94le6THOFSrBMf%2FYUOCvt6qVUV5iGWTUV%2Fe8L&ac=8589716&src=5919311&br=3911454&evtcd=P901&x_ti=1308&tb=&oid=&sid1=&sid2=&rk=70272d2a7ad54866d7555a0bd95fed1f&eltts=CTwGYGBRcqxqMAWMGwk3yA%3D%3D&lu=&brs=Y&" >
+					<img width=750px height=auto src="https://ssl.pstatic.net/melona/libs/1394/1394210/f1ea52775f895e8047e2_20220701123455548.jpg" alt="광고">
+				</a> <!-- link-ad end -->
+			</div> <!-- ad-area(광고) end -->
+			<!-- 컨텐츠 왼쪽: 뉴스 -->
+			<div class="news-area">
+				<!-- 컨텐츠 왼쪽: 뉴스 - 상단 뉴스 롤링 -->
+				<div class="group-issue">
+					<div class="issue">
+						<a href="#" class="link-media">연합뉴스</a>
+						<ul class="list-issue">
+							<li class="item-issue">
+								<a href="#" class="link-issue">21대 국회 후반기 의장에 5선 김진표…여야 합의선출</a>
+							</li>
+							<li class="item-issue">
+								<a href="#" class="link-issue">안녕하세요. 자바 수업입니다</a>
+							</li>
+						</ul> 
+					</div> <!-- issue end -->
+					<div class="direct">
+						<a href="#" class="link-news">뉴스홈</a>
+						<a href="#" class="link-direct">연예</a>
+						<a href="#" class="link-direct">스포츠</a>
+						<a href="#" class="link-direct">경제</a>
+					</div>
+				</div> <!-- group-issue(뉴스 롤링) end -->
+			</div>  <!-- news-area(뉴스) end -->
+		</div> <!-- column-left(컨텐츠 왼쪽) end -->
+		<!-- 컨텐츠 오른쪽 -->
+		<div class="column-right">
+			<!-- 컨텐츠 오른쪽: 로그인 -->
+			<div class="login-area">
+				<p class="login-msg">네이버를 더 안전하고 편리하게 이용하세요</p>
+				<a href="https://nid.naver.com/nidlogin.login?mode=form&url=https%3A%2F%2Fwww.naver.com" class="link-login">
+					<i class="icon-naver"></i>로그인</a>
+				<div class="login-sub-area">
+					<div class="look-box">
+						<a href="https://nid.naver.com/user/help.nhn?todo=idinquiry" class="link-look">아이디</a>
+						<a href="https://nid.naver.com/nidreminder.form" class="link-look">비밀번호찾기</a>			
+					</div> <!-- look-box end -->
+					<a href="https://nid.naver.com/nidregister.form?url=https%3A%2F%2Fwww.naver.com" class="link-join">회원가입</a>
+				</div> <!-- login-sub-area end -->
+			</div> <!-- logon-area(로그인) end -->
+		</div><!-- column-right(컨텐츠 오른쪽) end -->
+	</div>
+	<!-- content-con end -->
 	<footer class="footer-con]"></footer>
 </body>
 </html>
