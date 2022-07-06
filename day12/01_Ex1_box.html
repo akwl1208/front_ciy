@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>박스 예제</title>
+	<style>
+		*{padding: 0; margin: 0;}
+		h3{margin: 20px 0 0 20px;}
+		/* 내가 푼거 */
+		/* box-main에 높이랑 box-sizing 안해도 됬음 */
+		.box-main{
+			float: left;
+			height: 42px;
+			border: 1px solid red;
+			/* 브라우저랑 공간 띄울려고 */
+			margin: 20px;
+			padding: 10px; box-sizing: border-box;
+		}
+		.box-main .box{
+			float: left; height: 20px;
+			border: 1px solid black;
+			font-size: 14px; 
+		}
+		.box+.box{
+			margin-left: 10px;
+		}
+		.box-main::after{
+			clear: both; content: ''; display: block;
+ 		}
+		/* 선생님 풀이1 : padding */
+		.container1{
+			margin: 20px; padding: 10px;
+			border: 3px solid red;
+			/* 너비를 자동으로 지정하기 위해 float 사용 */
+			float: left;
+		}
+		.box1{
+			float: left;
+			/* line-height로도 높이 조절 가능 */
+			line-height: 20px; font-size: 14px;
+			margin-left: 30px;
+		}
+		.box1:first-child{
+			margin-left: 0;
+		}
+		/* 선생님 풀이2 : margin */
+		.container2{
+			margin: 20px;
+			border: 3px solid red;
+			/* 너비를 자동으로 지정하기 위해 float 사용 */
+			float: left;
+		}
+		.box2{
+			float: left; margin: 10px;
+			line-height: 20px; font-size: 14px;
+		}
+		.box-left{
+			margin-left: 20px;
+		}
+	</style>
+</head>
+<body>
+	<!-- 박스 안에 세 개의 박스 배치. 단, 너비는 글자수에 따라 자동으로 설정되야한다 -->
+	<h3>내가 푼거</h3>
+	<div class="box-main">
+		<div class="box">홍길동</div>
+		<div class="box">안녕하세요</div>
+		<div class="box">ㅇㅇㅇㅇㅇㅇㅇ</div>
+	</div>
+	<br><br><br><h3>선생님 풀이1 : padding</h3>
+	<div class="container1">
+		<div class="box1">홍길동</div>
+		<div class="box1">안녕하세요</div>
+		<div class="box1">ㅇㅇㅇㅇㅇㅇㅇ</div>
+	</div>
+	<br><br><br><h3>선생님 풀이2: margin</h3>
+	<div class="container2">
+		<div class="box2">홍길동</div>
+		<div class="box2 box-left">안녕하세요</div>
+		<div class="box2 box-left">ㅇㅇㅇㅇㅇㅇㅇ</div>
+	</div>
+</body>
+</html>
