@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>9등분 예제</title>
+	<style>
+		*{padding: 0; margin: 0;}
+		h3{margin: 20px;}
+		/* 내가 푼거 */
+		.container{
+			width: 300px; height: 150px;
+			background-color: yellow;
+		}
+		.group-box{
+			float: left; width: 100%; height: calc((100% + 2px) / 3);
+		}
+		.box{
+			box-sizing: border-box; float: left;
+			width: calc((100% + 2px) / 3); height: 100%;
+			border: 1px solid green;
+		}
+		.box+.box{
+			margin-left: -1px;
+		}
+		.group-box+.group-box{
+			margin-top: -1px;
+		}
+		/* 선생님 풀이1 : 구분선 */
+		.container1{
+			box-sizing: border-box; width: 300px; height: 150px;
+			border: 1px solid black; position: relative;
+		}
+		.row1{
+			height: calc((150px - 2px) / 3);
+		}
+		.box1{
+			height: 100%; width: calc((300px - 2px) / 3);
+			float: left;
+		}
+		.line-top-bottom1{
+			position: absolute; top: -1px; bottom: -1px; width: 1px;
+			background-color: black; left: 99px;
+		}
+		.line-top-bottom2{
+			position: absolute; top: -1px; bottom: -1px; width: 1px;
+			background-color: black; left: 198px;
+		}
+		.line-left-right1{
+			position: absolute; left: -1px; right: -1px; height: 1px;
+			background-color: black; top: 49px;
+		}
+		.line-left-right2{
+			position: absolute; left: -1px; right: -1px; height: 1px;
+			background-color: black; top: 98px;
+		}
+		/* 선생님 풀이2 : 테이블 */
+		.container2{
+			width: 300px; height: 150px;
+			border-collapse: collapse;
+		}
+		.box2{
+			width: calc(100% / 3); height: calc(100% / 3);
+			border: 1px solid black;
+		}
+		/* 선생님 풀이3 : 박스 */
+		.container3{
+			width: 300px; height: 150px;
+		}
+		.row3{
+			height: 50px;
+		}
+		.box3{
+			box-sizing: border-box; width: 100px; height: 100%; 
+			float: left; border: 1px solid black;
+		}
+		.row3+.row3 .box3{
+			border-top: 0;
+		}
+		.row3 .box3+.box3{
+			border-left: 0;
+		}
+	</style>
+	
+</head>
+<body>
+	<h3>내가 푼거</h3>
+	<div class="container">
+		<div class="group-box">
+			<div class="box">1</div>
+			<div class="box">2</div>
+			<div class="box">3</div>
+		</div>
+		<div class="group-box">
+			<div class="box">4</div>
+			<div class="box">5</div>
+			<div class="box">6</div>
+		</div>
+		<div class="group-box">
+			<div class="box">7</div>
+			<div class="box">8</div>
+			<div class="box">9</div>
+		</div>		
+	</div>
+	<h3>선생님 풀이1: 구분선</h3>
+	<div class="container1">
+		<div class="row1">
+			<div class="box1"></div>
+			<div class="box1"></div>
+			<div class="box1"></div>
+		</div>
+		<div class="row1">
+			<div class="box1"></div>
+			<div class="box1"></div>
+			<div class="box1"></div>
+		</div>
+		<div class="row1">
+			<div class="box1"></div>
+			<div class="box1"></div>
+			<div class="box1"></div>
+		</div>
+		<div class="box-line1">
+			<div class="line-top-bottom1"></div>
+			<div class="line-top-bottom2"></div>
+			<div class="line-left-right1"></div>
+			<div class="line-left-right2"></div>
+		</div>
+	</div>
+	<h3>선생님 풀이2: 테이블</h3>
+	<table class="container2">
+		<tr class="row2">
+			<td class="box2"></td>
+			<td class="box2"></td>
+			<td class="box2"></td>
+		</tr>
+		<tr class="row2">
+			<td class="box2"></td>
+			<td class="box2"></td>
+			<td class="box2"></td>
+		</tr>
+		<tr class="row2">
+			<td class="box2"></td>
+			<td class="box2"></td>
+			<td class="box2"></td>
+		</tr>
+	</table>
+	<h3>선생님 풀이3:</h3>
+	<div class="container3">
+		<div class="row3">
+			<div class="box3"></div>
+			<div class="box3"></div>
+			<div class="box3"></div>
+		</div>
+		<div class="row3">
+			<div class="box3"></div>
+			<div class="box3"></div>
+			<div class="box3"></div>
+		</div>
+		<div class="row3">
+			<div class="box3"></div>
+			<div class="box3"></div>
+			<div class="box3"></div>
+		</div>
+	</div>
+</body>
+</html>
