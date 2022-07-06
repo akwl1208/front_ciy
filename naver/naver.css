@@ -317,7 +317,7 @@ a{text-decoration: none;}
 	font-size: 14px; line-height: 18px;
 }
 .content-con .news-area .group-title .link-newsstand{
-	float: left; /*white-space: nowrap;*/
+	float: left;
 	color: #000; font-weight: 700; text-decoration: none;
 }
 .content-con .news-area .group-title .link-newsstand::before{
@@ -344,7 +344,7 @@ a{text-decoration: none;}
 	border-radius: 50%; vertical-align: top;
 	margin: 0 8px 0 4px; vertical-align: 3px;
 }
-.content-con .news-area .group-title .sort-area .select-sort{
+.content-con .news-area .group-title .sort-area .btn-sort.select{
 	color: #000; font-weight: 700;
 }
 
@@ -360,18 +360,27 @@ a{text-decoration: none;}
 	background-position: -49px -419px; vertical-align: top;
 	opacity: .7;
 }
-.content-con .news-area .group-title .icon-list:hover{
-	opacity: 1;
-}
 .content-con .news-area .group-title .icon-title{
 	display: inline-block; width: 13px; height: 13px;
-	background-position: -444px -19px; vertical-align: top;
+	background-position: -444px -34px; vertical-align: top;
 }
 .content-con .news-area .group-title .icon-set{
 	display: inline-block; width: 15px; height: 15px;
 	background-position: 0 -419px; vertical-align: top;
 	opacity: .7; margin: -1px 0 1px;
 }
+.content-con .news-area .group-title a:hover .icon-list,
+.content-con .news-area .group-title a:hover .icon-title,
+.content-con .news-area .group-title a:hover .icon-set{
+	opacity: 1;
+}
+.content-con .news-area .group-title .select .icon-list{
+	opacity: 1; background-position: -17px -419px;
+}
+.content-con .news-area .group-title .select .icon-title{
+	opacity: 1; background-position: -444px -19px;
+}
+
 .content-con .news-area .group-title .icon-set:hover{
 	opacity: 1;
 }
@@ -596,8 +605,6 @@ a{text-decoration: none;}
 }
 
 
-
-
 .footer-con{height: 424px; background-color: purple;}
  
 /* clearfix 공용 */
@@ -606,7 +613,8 @@ a{text-decoration: none;}
 .login-area .login-sub-area::after,
 .content-con .news-area .group-issue::after,
 .fixed-con::after,
-.content-con .news-area .group-title::after{
+.content-con .news-area .group-title::after,
+.clearfix::after{
 	clear: both; display: block; content: '';
 }
 /* 공용 이미지 */
@@ -635,7 +643,10 @@ a{text-decoration: none;}
 .content-con .news-area .group-title .icon-title,
 .content-con .news-area .group-title .icon-set,
 .content-con .news-area .group-news .btn-prev .icon-btn,
-.content-con .news-area .group-news .btn-next .icon-btn	{
+.content-con .news-area .group-news .btn-next .icon-btn,
+.bg-img,
+.bg-img::before,
+.bg-img::after{
 	background-image: url(https://s.pstatic.net/static/www/img/uit/sp_main_4f8ccb.png);
 	background-size: 457px 434px ;
 }
