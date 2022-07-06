@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>버튼 예제</title>
+	<style>
+		*{padding: 0; margin: 0;}
+		h3{margin: 20px;}
+		/* 내가푼거 */
+		/* button 태그는 text-align 필요없음 */
+		.btn{
+			height: 50px; width: 200px;
+			padding: 0 auto; text-align: center;
+			font-size: 13px;
+			margin-left: 20px;
+		}
+		/* 선생님 풀이1 : button */
+		.btn1{
+			height: 50px; width: 200px;
+			border: 3px solid green;
+			font-size: 13px;
+			margin-left: 20px;
+			padding: 0;
+			box-sizing: content-box;
+		}
+		/* 선생님 풀이2 : a */
+		.btn2{
+			display: inline-block; height: 50px; width: 200px;
+			border: 3px solid green; background-color: whitesmoke;
+			font-size: 13px; color: black; text-decoration: none;
+			line-height: 50px; text-align: center;
+			margin-left: 20px;
+		}
+	</style>
+</head>
+<body>
+	<!-- div는 더블클릭했을 때 블록지정이 되기 때문에 버튼으로는 잘 활용되지 않는다 -->
+	<h3>내가 푼거</h3>
+	<button type="submit" class="btn">버튼</button>
+	<h3>선생님 풀이1 : button 태그</h3>
+	<!-- 글자 상하좌우 가운데 정렬
+			 box-sizing: border-box
+			 inline-block 태그 
+			 기본 padding이 존재-->
+	<button type="submit" class="btn1">버튼</button>
+	<h3>선생님 풀이2 : a 태그</h3>
+	<!-- inline 태그
+			 box-sizing: content-box
+			 text-decoration: underline
+			 color : -webkit-link -->
+	<a href="#" class="btn2">버튼</a>
+
+</body>
+</html>
