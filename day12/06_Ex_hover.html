@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>hover 예제</title>
+	 <style>
+		/* 내가 푼거 */
+		.box{
+			width: 100px; height: 50px;
+			border: 1px solid black;
+			line-height: 50px; text-align: center;
+ 		}
+		.box2{
+			display: none;
+			position: absolute; top: 0; left: 0;
+			background-color: red;
+		}
+		.container:hover .box2{
+			display: inline-block;
+		}
+		/* 선생님 풀이 */
+		.container1{
+			box-sizing: border-box; width: 125px; height: 65px;
+			border: 1px solid black;
+			padding: 20px 0;
+			font-size: 14px; text-align: center; line-height: 25px;
+		}
+		.hover{
+			display: none; height: 100%;
+		}
+		.container1:hover{
+			background-color: gray;
+		}
+		.container1:hover .logo{
+			display: none;
+		}
+		.container1:hover .hover{
+			display: block;
+		}
+	 </style>
+</head>
+<body>
+	<h3>내가 푼거</h3>
+	<div class="container" style="position: relative;">
+		<div class="box box1">로고</div>
+		<div class="box box2"></div>
+	</div>
+	<h3>선생님 풀이</h3>
+	<div class="container1">
+		<span class="logo">로고</span>
+		<div class="hover">호버</div>
+	</div>
+</body>
+</html>
