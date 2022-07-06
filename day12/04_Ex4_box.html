@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>9등분 박스</title>
+	<style>
+		*{padding: 0; margin: 0;}	
+		h3{margin: 20px;}
+		/* 내가 푼거 */
+		.group-box{
+			float: left; width: 312px; height: 56px;
+			background-color: yellowgreen;
+		}
+		.box{
+			float: left;
+			width: 100px; height: 50px;
+			border: 3px solid green;
+		}
+		.box+.box{
+			margin-left: -3px;
+		}
+		.group-box+.group-box{
+			margin-top: -3px;
+		}
+		/* 선생님 풀이 */
+		.box1{
+			width: 100px; height: 50px;
+			border: 3px solid red;
+			float: left;
+		}
+		.row .box1+.box1{
+			margin-left: -3px;
+		}
+		.row{
+			float: left;
+		}
+		.row+.row{
+			margin-top: -3px;
+		}
+		.container1{
+			width: 312px;
+		}
+		.container1::after{
+			clear: both; display: block; content: '';
+		}
+	</style>
+</head>
+<body>
+	<h3>내가 푼거</h3>
+	<div class="container">
+		<div class="group-box">
+			<div class="box"></div>
+			<div class="box"></div>
+			<div class="box"></div>
+		</div>
+		<div class="group-box">
+			<div class="box"></div>
+			<div class="box"></div>
+			<div class="box"></div>
+		</div>
+		<div class="group-box">
+			<div class="box"></div>
+			<div class="box"></div>
+			<div class="box"></div>
+		</div>		
+	</div>
+	<h3>선생님 풀이</h3>
+	<div class="container1">
+		<div class="row">
+			<div class="box1">1</div>
+			<div class="box1">2</div>
+			<div class="box1">3</div>
+		</div>
+		<div class="row">
+			<div class="box1">4</div>
+			<div class="box1">5</div>
+			<div class="box1">6</div>
+		</div>
+		<div class="row">
+			<div class="box1">7</div>
+			<div class="box1">8</div>
+			<div class="box1">9</div>
+		</div>		
+	</div>
+</body>
+</html>
