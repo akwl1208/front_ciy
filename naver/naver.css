@@ -491,6 +491,168 @@ a{text-decoration: none;}
 .content-con .news-area .title-view .thumb-box:hover .popup-wrap{
 	display: block;
 }
+/* 컨텐츠-왼쪽-캐스트 */
+.content-con .column-left .themecast-area{	
+  padding: 35px 0 27px; letter-spacing: -.25px;
+}
+/* 컨텐츠-왼쪽-캐스트-머리 */
+.content-con .themecast-area .theme-head{
+	font-size: 12px; line-height: 16px; color: #202020;
+}
+.content-con .themecast-area .theme-head .group-title{
+	overflow: hidden; padding-bottom: 17px;
+}
+.content-con .themecast-area .theme-head .group-title .title-area{
+	float: left;
+}
+.content-con .themecast-area .group-title .title-area .dsc{
+	margin-left: 8px;
+}
+.content-con .themecast-area .group-title .info-area{
+	float: right;
+}
+.content-con .themecast-area .group-title .info-area .btn-set{
+	position: relative; margin-left: 14px; color: #505050;
+	background: none !important;
+}
+.content-con .themecast-area .group-title .info-area .btn-set::before{
+	display: inline-block; width: 11px; height: 11px;
+	background-position: -444px -194px; vertical-align: top;
+	content: ''; margin-right: 4px; vertical-align: -1px;
+	opacity: .7;
+}
+.content-con .themecast-area .group-title .info-area .btn-set::after{
+	position: absolute; top: 2px; left: -8px;
+	content: ''; width: 1px; height: 12px;
+	background-color: #e4e8eb;
+}
+.content-con .themecast-area .group-title .info-area a:hover{
+	text-decoration: underline;
+}
+.content-con .themecast-area .group-title .info-area a:hover::before{
+	opacity: 1;
+}
+/* 컨텐츠-왼쪽-캐스트-카테고리 */
+.content-con .themecast-area .theme-head .group-category .main-category{
+	position: relative; background-color: #fff;
+	border: 1px solid #dae1e6;
+}
+/* 컨텐츠-왼쪽-캐스트-카테고리-버튼 */
+.content-con .themecast-area .main-category .btn-prev{
+	position: absolute; top: 6px; left: -23px;
+	z-index: 10; 
+}
+.content-con .themecast-area .main-category .btn-prev .icon-btn{
+	display: inline-block; width: 40px; height: 40px;
+	background-position: -128px -345px; vertical-align: top;
+}
+.content-con .themecast-area .main-category .btn-prev:hover .icon-btn{
+	background-position: -44px -345px;
+}
+.content-con .themecast-area .main-category .btn-next{
+	position: absolute; top: 6px; right: -18px;
+	z-index: 10; 
+}
+.content-con .themecast-area .main-category .btn-next .icon-btn{
+	display: inline-block; width: 40px; height: 40px;
+	background-position: -86px -345px; vertical-align: top;
+}
+.content-con .themecast-area .main-category .btn-next:hover .icon-btn{
+	background-position: -170px -345px
+}
+/* 컨텐츠-왼쪽-캐스트-카테고리-list */
+.content-con .themecast-area .main-category .list-category-wrap{
+	overflow: hidden;
+}
+.content-con .themecast-area .main-category .list-category{
+	font-size: 0; line-height: 0; white-space: nowrap;
+}
+.content-con .themecast-area .main-category .item-category{
+	position: relative; z-index: 1;
+	display: inline-block; width: 94px;
+	vertical-align: top; 
+}
+.content-con .themecast-area .main-category .item-category:nth-child(8n+1){
+	width: 92px;
+}
+.content-con .themecast-area .main-category .tab{
+	display: block; border-right: 1px solid #dae1e6;
+	font-size: 13px; line-height: 49px; font-weight: 700;
+	text-align: center; color: #000;
+}
+.content-con .themecast-area .main-category .icon-middot{
+	display: inline-block; width: 2px; height: 2px;
+	margin: 0 2px; 	vertical-align: 4px;
+	background-color: rgba(32,32,32,.8);
+	border-radius: 50%;
+}
+/* 컨텐츠-왼쪽-캐스트-카테고리-list-hover*/
+.content-con .themecast-area .main-category .tab.link-enter:hover{
+	color: #e65da0;
+}
+.content-con .themecast-area .main-category .tab.link-sports:hover{
+  color: #0147b5;
+}
+.content-con .themecast-area .main-category .tab.link-car:hover{
+	color: #4a94e1;
+}
+.content-con .themecast-area .main-category .tab.link-webtoon:hover{
+	color: #66c971;
+}
+.content-con .themecast-area .main-category .tab.link-finance:hover{
+	color: #35ae5e;
+}
+.content-con .themecast-area .main-category .tab.link-myfeed:hover{
+	color: #5290ff;
+}
+.content-con .themecast-area .main-category .tab.link-living:hover{
+	color: #ebaa00;
+}
+.content-con .themecast-area .main-category .tab.link-livinghome:hover{
+	color: #c08d31;
+}
+.content-con .themecast-area .main-category .tab.link-culture:hover{
+	color: #42be6f;
+}
+.content-con .themecast-area .main-category .tab.link-beauty:hover{
+	color: #8449ca;
+}
+/* 컨텐츠-왼쪽-캐스트-카테고리-list-선택*/
+.content-con .themecast-area .main-category .tab.link-enter.select{
+	background-color: #e65da0; color: #fff;
+}
+.content-con .themecast-area .main-category .tab.link-sports.select{
+  background-color: #0147b5; color: #fff;
+}
+.content-con .themecast-area .main-category .tab.link-car.select{
+	background-color: #4a94e1; color: #fff;
+}
+.content-con .themecast-area .main-category .tab.link-webtoon.select{
+	background-color: #66c971; color: #fff;
+}
+.content-con .themecast-area .main-category .tab.link-finance.select{
+	background-color: #35ae5e; color: #fff;
+}
+.content-con .themecast-area .main-category .tab.link-myfeed.select{
+	background-color: #5290ff; color: #fff;
+}
+.content-con .themecast-area .main-category .tab.link-living.select{
+	background-color: #ebaa00; color: #fff;
+}
+.content-con .themecast-area .main-category .tab.link-livinghome.select{
+	background-color: #c08d31; color: #fff;
+}
+.content-con .themecast-area .main-category .tab.link-culture.select{
+	background-color: #42be6f; color: #fff;
+}
+.content-con .themecast-area .main-category .tab.link-beauty.select{
+	background-color: #8449ca; color: #fff;
+}
+.content-con .themecast-area .main-category .tab.select{
+	position: relative;
+	margin: 0 -1px; border-radius: 1px;
+	box-shadow: 0 3px 6px 0 rgba(0,0,0,0.16);
+}
 /* 컨텐츠-오른쪽-로그인 */
 .content-con .column-right .login-area{
 	padding: 16px 16px 12px 17px;
@@ -602,6 +764,14 @@ a{text-decoration: none;}
 }
 .content-con .timesquare-area .card-news:hover{
 	text-decoration: underline;
+}
+/* 컨텐츠 박스-오른쪽2-광고이미지롤링 */
+.content-con .column-right .img-rolling-area{
+	position: absolute; right: 0; top: 208px; 
+	width: 350px; height: 200px;
+}
+.content-con .column-right .img-rolling-area .img-rolling-link{
+	display: block; 
 }
 
 
