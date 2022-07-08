@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>네이버 홈 쇼핑 </title>
+	<style>
+		*{margin: 0; padding: 0;}
+		ul,ol{list-style: none;}
+		a{text-decoration: none;}
+		.box-right4{
+			width: 350px; margin-top: 15px; margin-left: 20px;
+		}
+		.box-shop-header{padding: 12px 0 13px;}
+		.box-trend{float: left;}
+		.box-list-shop{float: right;}
+		.link-trend{
+			color: #000; font-size: 13px; line-height: 17px;
+			font-weight: bold;
+		}
+		.link-trend::before{
+			display: inline-block; width: 15px; height: 15px;
+			background-position: -48px -77px; content: '';
+			margin-right: 4px; vertical-align: -3px;
+		}
+		.link-trend::after{
+			display: inline-block; width: 5px; height: 9px;
+			background-position: -65px -77px; content: '';
+			margin-left: 7px;	vertical-align: 0;
+		}
+		.link-trend:hover{text-decoration: underline;}
+		.link-shop{
+			line-height: 17px; border-bottom: 2px solid transparent;
+			float: left; font-weight: bold; font-size: 13px;
+			color: #202020; padding: 0 1px;
+		}
+		.link-shop+.link-shop{margin-left: 11px;}
+		.link-shop.active{
+			border-color: #19ce60; color: #03c75a;
+		}
+		.box-shop-body{	border: 1px solid #e4e8eb;}
+		.box-mall{
+			padding: 12px 4px 11px 10px;
+  		background-color: #f7f9fa; border-bottom: 1px solid #dae1e6;
+		}
+		.box-goods{padding: 55px 8px 20px; position: relative;}
+		.link-mall{
+			float: left; 
+			font-size: 12px; letter-spacing: -.25px;
+			line-height: 23px; color: #404040;
+		}
+		.point{
+			float: left; 	background-color: #c9cccf;
+			width: 3px; height: 3px; border-radius: 50%
+		}
+		.mar-12{margin: 10px 12px 0;}
+		.mar-13{margin: 10px 13px 0;}
+ 		.mar-11{margin: 10px 11px 0;}			
+		.mar-10{margin: 10px 10px 0;}		
+		.link-mall.bold{font-weight: bold; color: #202020;}
+		.link-mall:hover{text-decoration: underline;}
+		.box-btns-top{position: absolute; top: 13px; right: 8px;}
+		.btn-prev,
+		.btn-next{
+			float: left; border: 1px solid #dae1e6;
+			line-height: 0px;
+		}
+		.btn-prev::before{
+			display: inline-block; width: 5px; height: 9px;
+			background-position: -93px -77px;
+			content: ''; margin: 9px 12px 9px 10px;
+		}
+		.btn-next::before{
+			display: inline-block; width: 5px; height: 9px;
+			background-position: -79px -77px;
+			content: ''; margin: 9px 10px 9px 12px;
+		}
+		.box-btns-top>.btn-next{margin-left: -1px;}
+		.btn-prev:hover,.btn-next:hover{
+			background-color: #fafbfc;
+		}
+		.page{
+			float: left; letter-spacing: -.25px;
+			font-size: 12px; line-height: 29px; color: grey;
+		}
+		.btn-prev{margin-left: 7px;}
+		.current{
+			color: #202020; font-weight: bold;
+			margin-right: 4px; float: left;
+		}
+		.max{float: left;}
+		.box-btns-bottom{
+			text-align: center; line-height: 29px;
+			margin-top: 18px;
+		}
+		.box-btns-bottom>.btn-prev,
+		.box-btns-bottom>.btn-next,
+		.box-btns-bottom>.page{
+			float: none; display: inline-block;
+		}
+		.box-btns-bottom>.page{
+			width: 61px; text-align: center; vertical-align: top;
+		}
+		.box-btns-bottom>.page>*{float: none;}
+		.list-goods{margin-right: -5px;}
+		.item-goods{
+			margin-top: 10px; float: left; width: 33.33%;
+		}
+		.link-goods{display: block; margin-right: 5px;}
+		.box-thumb{overflow: hidden; position: relative;}
+		.img-thumb{vertical-align: top; transition: transform .3s;}
+		.box-title{margin-top: 5px;}
+		.title{
+			overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+			display: block; line-height: 16px; text-align: center;
+			font-size: 12px; letter-spacing: -.25px;
+			color: #202020;
+		}
+		.title:first-child{font-weight: bold;}
+		.link-goods:hover{text-decoration: underline;}
+		.link-goods:hover .img-thumb{transform: scale(1.05);}
+		.thumb-border{
+			position: absolute;
+			top: 0; left: 0; right: 0; bottom: 0;
+			border: 1px solid #000; opacity: .08;	
+		}
+		.bg-img2, .bg-img2-before::before, .bg-img2-after::after{
+			background-image: url(https://s.pstatic.net/static/www/img/uit/sp_shop_a620bd.png);
+			background-size: 107px 101px;
+		}
+		.after::after{
+			clear: both; display: block; content: '';
+		}
+	</style>
+</head>
+<body>
+	<div class="box-right4">
+		<div class="box-shop-header after">
+			<div class="box-trend">
+				<a href="#" class="link-trend bg-img2-before bg-img2-after">트렌드쇼핑</a>
+			</div>
+			<div class="box-list-shop">
+				<a href="#" class="link-shop active">상품</a>
+				<a href="#" class="link-shop">쇼핑몰</a>
+				<a href="#" class="link-shop">MEN</a>
+			</div>
+		</div>
+		<div class="box-shop-body">
+			<div class="box-mall after">
+				<a href="#" class="link-mall">쿠팡</a>
+				<span class="point mar-12"></span>
+				<a href="#" class="link-mall bold">G마켓</a>
+				<span class="point mar-13"></span>
+				<a href="#" class="link-mall">옥션</a>
+				<span class="point mar-13"></span>
+				<a href="#" class="link-mall">11번가</a>
+				<span class="point mar-13"></span>
+				<a href="#" class="link-mall bold">티몬</a>
+				<span class="point mar-13"></span>
+				<a href="#" class="link-mall">SSG닷컴</a>
+				<a href="#" class="link-mall bold">올리브영</a>
+				<span class="point mar-11"></span>
+				<a href="#" class="link-mall">위메프</a>
+				<span class="point mar-11"></span>
+				<a href="#" class="link-mall bold">GS샵</a>
+				<span class="point mar-10"></span>
+				<a href="#" class="link-mall">CJ온스타일</a>
+				<span class="point mar-11"></span>
+				<a href="#" class="link-mall">패션플러스</a>
+			</div>
+			<div class="box-goods">
+				<div class="box-btns-top">
+					<span class="page">
+						<span class="current">1</span>
+						<span class="max">/ 18</span>
+					</span>
+					<a href="#" class="btn-prev bg-img2-before"></a>
+					<a href="#" class="btn-next bg-img2-before"></a>
+				</div>
+				<ul class="list-goods after">
+					<li class="item-goods">
+						<a href="#" class="link-goods">
+							<div class="box-thumb">
+								<img width="107" height="146" src="https://s.pstatic.net/shopping.phinf/20220317_22/b2839526-f243-4e59-afc0-b73623a8e4a5.jpg?type=f214_292" alt="상품" class="img-thumb">
+								<div class="thumb-border"></div>
+							</div>
+							<p class="box-title">
+								<span class="title">착! 감싸니~</span>
+								<span class="title">정말 안전해요</span>
+							</p>
+						</a>
+					</li>
+					<li class="item-goods">
+						<a href="#" class="link-goods">
+							<div class="box-thumb">
+								<img width="107" height="146" src="https://s.pstatic.net/shopping.phinf/20220317_22/b2839526-f243-4e59-afc0-b73623a8e4a5.jpg?type=f214_292" alt="상품" class="img-thumb">
+								<div class="thumb-border"></div>
+							</div>
+							<p class="box-title">
+								<span class="title">착! 감싸니~</span>
+								<span class="title">정말 안전해요</span>
+							</p>
+						</a>
+					</li>
+					<li class="item-goods">
+						<a href="#" class="link-goods">
+							<div class="box-thumb">
+								<img width="107" height="146" src="https://s.pstatic.net/shopping.phinf/20220317_22/b2839526-f243-4e59-afc0-b73623a8e4a5.jpg?type=f214_292" alt="상품" class="img-thumb">
+								<div class="thumb-border"></div>
+							</div>
+							<p class="box-title">
+								<span class="title">착! 감싸니~</span>
+								<span class="title">정말 안전해요</span>
+							</p>
+						</a>
+					</li>
+					<li class="item-goods">
+						<a href="#" class="link-goods">
+							<div class="box-thumb">
+								<img width="107" height="146" src="https://s.pstatic.net/shopping.phinf/20220317_22/b2839526-f243-4e59-afc0-b73623a8e4a5.jpg?type=f214_292" alt="상품" class="img-thumb">
+								<div class="thumb-border"></div>
+							</div>
+							<p class="box-title">
+								<span class="title">착! 감싸니~</span>
+								<span class="title">정말 안전해요</span>
+							</p>
+						</a>
+					</li>
+					<li class="item-goods">
+						<a href="#" class="link-goods">
+							<div class="box-thumb">
+								<img width="107" height="146" src="https://s.pstatic.net/shopping.phinf/20220317_22/b2839526-f243-4e59-afc0-b73623a8e4a5.jpg?type=f214_292" alt="상품" class="img-thumb">
+								<div class="thumb-border"></div>
+							</div>
+							<p class="box-title">
+								<span class="title">착! 감싸니~</span>
+								<span class="title">정말 안전해요</span>
+							</p>
+						</a>
+					</li>
+					<li class="item-goods">
+						<a href="#" class="link-goods">
+							<div class="box-thumb">
+								<img width="107" height="146" src="https://s.pstatic.net/shopping.phinf/20220317_22/b2839526-f243-4e59-afc0-b73623a8e4a5.jpg?type=f214_292" alt="상품" class="img-thumb">
+								<div class="thumb-border"></div>
+							</div>
+							<p class="box-title">
+								<span class="title">착! 감싸니~</span>
+								<span class="title">정말 안전해요</span>
+							</p>
+						</a>
+					</li>
+					<li class="item-goods">
+						<a href="#" class="link-goods">
+							<div class="box-thumb">
+								<img width="107" height="146" src="https://s.pstatic.net/shopping.phinf/20220317_22/b2839526-f243-4e59-afc0-b73623a8e4a5.jpg?type=f214_292" alt="상품" class="img-thumb">
+								<div class="thumb-border"></div>
+							</div>
+							<p class="box-title">
+								<span class="title">착! 감싸니~</span>
+								<span class="title">정말 안전해요</span>
+							</p>
+						</a>
+					</li>
+					<li class="item-goods">
+						<a href="#" class="link-goods">
+							<div class="box-thumb">
+								<img width="107" height="146" src="https://s.pstatic.net/shopping.phinf/20220317_22/b2839526-f243-4e59-afc0-b73623a8e4a5.jpg?type=f214_292" alt="상품" class="img-thumb">
+								<div class="thumb-border"></div>
+							</div>
+							<p class="box-title">
+								<span class="title">착! 감싸니~</span>
+								<span class="title">정말 안전해요</span>
+							</p>
+						</a>
+					</li>
+					<li class="item-goods">
+						<a href="#" class="link-goods">
+							<div class="box-thumb">
+								<img width="107" height="146" src="https://s.pstatic.net/shopping.phinf/20220317_22/b2839526-f243-4e59-afc0-b73623a8e4a5.jpg?type=f214_292" alt="상품" class="img-thumb">
+								<div class="thumb-border"></div>
+							</div>
+							<p class="box-title">
+								<span class="title">착! 감싸니~</span>
+								<span class="title">정말 안전해요</span>
+							</p>
+						</a>
+					</li>
+					<li class="item-goods">
+						<a href="#" class="link-goods">
+							<div class="box-thumb">
+								<img width="107" height="146" src="https://s.pstatic.net/shopping.phinf/20220317_22/b2839526-f243-4e59-afc0-b73623a8e4a5.jpg?type=f214_292" alt="상품" class="img-thumb">
+								<div class="thumb-border"></div>
+							</div>
+							<p class="box-title">
+								<span class="title">착! 감싸니~</span>
+								<span class="title">정말 안전해요</span>
+							</p>
+						</a>
+					</li>
+					<li class="item-goods">
+						<a href="#" class="link-goods">
+							<div class="box-thumb">
+								<img width="107" height="146" src="https://s.pstatic.net/shopping.phinf/20220317_22/b2839526-f243-4e59-afc0-b73623a8e4a5.jpg?type=f214_292" alt="상품" class="img-thumb">
+								<div class="thumb-border"></div>
+							</div>
+							<p class="box-title">
+								<span class="title">착! 감싸니~</span>
+								<span class="title">정말 안전해요</span>
+							</p>
+						</a>
+					</li>
+					<li class="item-goods">
+						<a href="#" class="link-goods">
+							<div class="box-thumb">
+								<img width="107" height="146" src="https://s.pstatic.net/shopping.phinf/20220317_22/b2839526-f243-4e59-afc0-b73623a8e4a5.jpg?type=f214_292" alt="상품" class="img-thumb">
+								<div class="thumb-border"></div>
+							</div>
+							<p class="box-title">
+								<span class="title">착! 감싸니~</span>
+								<span class="title">정말 안전해요</span>
+							</p>
+						</a>
+					</li>
+				</ul>
+				<div class="box-btns-bottom after">
+					<a href="#" class="btn-prev bg-img2-before"></a>
+					<span class="page">
+						<span class="current">1</span><span class="max">/ 18</span>
+					</span>
+					<a href="#" class="btn-next bg-img2-before"></a>
+				</div>
+			</div>
+			<div class="box-event"></div>
+		</div>
+	</div>
+</body>
+</html>
