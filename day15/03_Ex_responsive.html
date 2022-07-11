@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://kit.fontawesome.com/38e579569f.js" crossorigin="anonymous"></script>
+	<title>반응형 예제: 메뉴</title>
+	<style>
+		*{margin: 0; padding: 0;}
+		ul, ol{list-style: none;}
+		a{text-decoration: none;}
+		
+		.nav{
+			box-sizing: border-box; height: 50px;
+			border: 1px solid black; position: relative;
+		}
+		.list-menu{
+			display: flex; height: 100%;
+		}
+		.item-menu{
+			box-sizing: border-box; width: 100%; height: 100%; 
+			line-height: 50px; text-align: center;
+		}
+		.item-menu+.item-menu{
+			margin-left: -1px; border-left: 1px solid black;
+		}
+		.link-menu{
+			display: block; width: 100%; height: 100%; color: black;
+		}
+		.btn-ham-menu{display: none;}
+		@media (max-width: 600px){
+			/* <내가 푼거>
+			.list-menu{
+				position: absolute; top: 48px; right: -1px;
+				display: block; width: 200px;
+				margin-top: -1px -1px 0 0; 
+			}
+			.item-menu{
+				border: 1px solid black;
+			}
+			.item-menu+.item-menu{
+				margin: -1px -1px 0 0; 
+			} */
+			.list-menu{
+				/* display: none; */
+				position: absolute; top: 50px; right: 0px;
+				display: block; box-sizing: border-box; height: 150px;
+				margin-top: -2px -1px 0 0; border: 1px solid black;
+				min-height: calc(100vh - 49px);
+			}
+			.item-menu{
+				box-sizing: border-box; width: 200px; height: 50px;
+			}
+			.item-menu+.item-menu{
+				border-left: 0;
+				margin-top: -1px; border-top: 1px solid black;
+			}
+			.item-menu:last-child{border-bottom: 1px solid black;}
+			.btn-ham-menu{
+				box-sizing: border-box; width: 50px; height: 50px;
+				border: 1px solid black; display: block;
+				position: absolute; top: 0; right: 0;
+				margin: -1px -1px 0 0	; color: black;
+				text-align: center; line-height: 48px; font-size: 30px;
+			} 
+		}
+	</style>
+</head>
+<body>
+	<!-- 600px이상일 때 3등분 메뉴
+			 600px이하일 때 햄버거 메뉴 -->
+		<nav class="nav">
+			<a href="#" class="btn-ham-menu">
+				<i class="fa-solid fa-bars"></i>
+			</a>
+			<ul class="list-menu">
+				<li class="item-menu">
+					<a href="#" class="link-menu">메뉴1</a>
+				</li>
+				<li class="item-menu">
+					<a href="#" class="link-menu">메뉴2</a>
+				</li>
+				<li class="item-menu">
+					<a href="#" class="link-menu">메뉴3</a>
+				</li>
+			</ul>
+		</nav>
+</body>
+</html>
