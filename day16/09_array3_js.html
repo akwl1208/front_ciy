@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>js : 배열3</title>
+</head>
+<body>
+	<script>
+		// 배열명.reverse() : 배열 원소의 값이 반대로 교체
+		let arr1 = [1,12,3,44];
+		console.log('reverse 전 : ' + arr1);
+		arr1.reverse();
+		console.log('reverse 후 : ' + arr1);
+
+		/* 배열명.sort() : 요소들을 문자열로 보고 알파벳순으로 정렬
+			 배열명.sort(함수) : 함수를 기준으로 정렬
+		*/
+		console.log('sort 전 : ' + arr1);
+		arr1.sort();
+		console.log('문자열 sort 후 : ' + arr1);
+		// 숫자 정렬을 하려면 추가 작업 필요
+		arr1.sort((a,b)=>a-b); //오름차순
+		console.log('숫자 sort 후 : ' + arr1);
+
+		/*
+		* 배열명.splice(시작번지, 삭제 개수?) : 시작번지부터 삭제 개수만큼 제거, 개수가 생략되면 끝까지
+			- 제거한 요소들을 반환
+		* 배열명.splice(시작번지, 삭제 개수, 추가할 요소들) : 시작번지부터 삭제 개수만큼 삭제한 후,
+			시작번지부터 추가할 요소들을 추가
+			- 제거한 요소들을 반환
+		*/
+		//arr1.splice(2); //2번지부터 끝까지 제거
+		arr1.splice(2,1); //2번지부터 1개 제거
+		console.log(arr1);
+		arr1.splice(2, 1, true, false);
+		console.log(arr1);
+
+		/*
+			처음 추가/삭제 : unshift, shift
+			나중 추가/삭제 : push, pop
+			중간 추가/삭제 : splice
+		*/
+	</script>
+</body>
+</html>
