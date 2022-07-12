@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>반응형 웹</title>
 	<style>
+		/* min-width : 작은 화면을 기준으로 반응형 웹 구현 */
 		.box{
 			width: 100px; height: 100px; background-color: red;
 		}
@@ -17,6 +18,7 @@
 				width: 200px; height: 200px; background-color: green;
 			}
 		}
+		/* and를 안쓰면 선택자 우선순위나 코드 순서에 유의해야 한다. */
 		@media (min-width: 1200px){
 			.box{
 				width: 300px; height: 300px; background-color: blue;
