@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>js : 변수와 타입</title>
+	<script>
+		/* script를 head 태그에 쓰면 body 태그에 있는 태그들이 배치되기 전에 실행
+			 console.log(1); */
+	</script>
+</head>
+<body>
+	<script>
+		/* script를 body 태그에 쓰면 body 태그에 있는 태그들이 배치된 후에 실행
+			 console.log(2); */
+		/* <js 변수 선언 특징>
+		- js에서는 ;(세미콜론)이 필수 아님
+		- 변수를 선언하려면 var, let을 이용하여 선언
+		- var는 호이스팅 가능, 중복 선언 가능 -> 변수를 활용한 후, 변수를 선언해도 됨
+		 */
+		x = 10;
+		var x;
+		console.log(x);
+		var y = 20;
+		console.log(y);
+		/* 위처럼 작성해도 다음과 같이 실행됨
+		var x;
+		var y;
+		x = 10;
+		console.log(x);
+		x = 20;
+		console.log(y);
+		*/
+		// let은 호이스팅이 불가능, 중복 선언 불가능
+		let z;
+		z = 30;
+		console.log(z);
+		// let z; -> 오류
+
+		/* typeof : 변수의 타입을 확인하는 연산자
+			 - null : 객체 타입, 값 미정
+			 - undefined : 타입 미정
+		*/
+		var a = 10;
+		console.log(a + '의 타입 : ' + typeof a);
+		var b = 'abc';
+		console.log(b + '의 타입 : ' + typeof b);
+		var c = true;
+		console.log(c + '의 타입 : ' + typeof c);
+		var d = Symbol('def');
+		console.log("Symbol('def')" + '의 타입 : ' + typeof d);
+		var e = {test : 123}; //객체
+		console.log('{test : 123}' + '의 타입 : ' + typeof e);
+		var f; //undefined
+		console.log(f + '의 타입 : ' + typeof f);
+		var g = [1,2]; //배열
+		console.log('[1,2]' + '의 타입 : ' + typeof g);
+		var h = null;
+		console.log('null' + '의 타입 : ' + typeof h);
+		var i = new Array(1,2,3);
+		console.log('new Array(1,2,3)' + '의 타입 : ' + typeof i);
+		
+		// js에서 ==는 값이 같음, ===는 값과 타입이 같음
+		console.log("1 == '1' : " + (1 == '1'));
+		console.log("1 === '1' : " + (1 === '1'));
+	</script>
+</body>
+</html>
