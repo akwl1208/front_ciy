@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>배열 예제</title>
+</head>
+<body>
+	<script>
+		// arr에 3이 있으면 위치를 출력하고 3을 제거, 없으면 없다고 출력
+		let arr = [1, 2, 3, 4, 5];
+		let num = 3;
+		let index = arr.indexOf(num);		
+		if(index >= 0){
+			console.log(num + '의 위치 : ' + index + '번지');
+			arr.splice(index, 1);
+			console.log('arr : ' + arr);
+		}else{
+			console.log('배열에 ' + num + '은 없다');
+		}
+	</script>
+</body>
+</html>
