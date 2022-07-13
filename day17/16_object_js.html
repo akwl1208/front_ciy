@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>js : 객체</title>
+</head>
+<body>
+	<script>
+		/* 
+			* js에서 객체 생성
+			var 객체명 = {
+				속성명 : 값,
+				속성명 : 값,
+				메소드명 : function(){
+					구현;
+				}
+			}
+			- 속성명에 '속성명' 또는 속성명도 됨
+			- 속성과 메소드는 언제든 중간에 추가 가능
+			- delete로 속성 삭제 가능
+			- 메소드 안에서 속성을 사용하려면 this. 을 붙임
+		*/
+		var person = {
+		name : "홍길동",      
+		'age' : 21,  
+		print: function() { 
+				return this.name + ' : ' + this.age;
+		}
+		};
+
+		console.log(person.name);
+		console.log(person['age']);
+		console.log(person.print);
+
+		person.gender = '남성'; //속성 추가
+		person.setGender = function(gender){ //메소드 추가
+			this.gender = gender
+		}
+		person.setGender('여성');
+		console.log(person);
+		
+		delete person.gender; //속성 삭제
+		delete person.setGender; //메소드 삭제
+		console.log(person);
+	</script>
+</body>
+</html>
