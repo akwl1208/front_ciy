@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>js : 배열 - filter</title>
+</head>
+<body>
+	<script>
+		/* 
+			배열명.filter(함수) : 함수의 return 값이 true인 요소들로 새로운 배열로 말들어 반환
+				- 함수에 return이 필요하고, return 값이 참 또는 거짓
+		*/
+		let arr = [1,2,3,4,10,20,5];
+		let sum = 0;
+
+		let even1 = arr.filter(function(num){
+			return num % 2 == 0;
+		});
+		even1.forEach((num)=> sum += num);
+		console.log('even1 배열에서 짝수의 합 : ' + sum);
+
+		sum = 0;
+		let even2 = arr.filter((num)=>{
+			return num % 2 == 0}
+		);
+		even2.forEach((num)=> sum += num);
+		console.log('even2 배열에서 짝수의 합 : ' + sum);
+		
+		sum = 0;
+		let even3 = arr.filter((num)=>num % 2 == 0);
+		even3.forEach((num)=> sum += num);
+		console.log('even3 배열에서 짝수의 합 : ' + sum);
+		
+	</script>
+</body>
+</html>
