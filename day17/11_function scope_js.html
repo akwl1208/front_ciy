@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>js : 함수 - 함수의 유효범위</title>
+</head>
+<body>
+	<script>
+		var num = 10; //전역변수 num
+
+		function test1(){
+			console.log('지역변수 num : ' + num);
+			console.log('전역변수 num : ' + window.num);
+			
+			var num = 20; //지역변수 num
+			console.log('지역변수 num : ' + num);
+			console.log('전역변수 num : ' + window.num);
+		}
+		test1();
+
+		/* 함수 호이스팅된 후, 변수 선언이 위로 올라옴
+		var num;
+		function test1(){
+			var num; //undefined
+			console.log('지역변수 num : ' + num);
+			console.log('전역변수 num : ' + window.num);
+			
+			num = 20; //지역변수 num
+			console.log('지역변수 num : ' + num);
+			console.log('전역변수 num : ' + window.num);
+		}
+		num = 10; //전역변수 num
+		test1();
+		*/
+	</script>
+</body>
+</html>
