@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>jquery : ready</title>
+	<!-- 링크?를 직접 입력 -->
+	<!-- <script src="//code.jquery.com/jquery-3.6.0.min.js"></script> -->
+	<script src="../js/jquery.js"></script>
+</head>
+<body>
+	<button>클릭</button>
+	<script>
+		/* ready: 스크립트 위치에 상관없이 코드 실행되게 해주는 역할
+				- 특히, script를 head에 작성했을 때
+				- 전역변수는 ready 밖에 작성해야 함
+		*/
+		$(document).ready(function(){
+			var btn = $('button');
+			console.log(btn);
+		});
+		
+		$(function(){
+			var btn = $('button');
+			console.log(btn);
+		});
+	</script>
+</body>
+</html>
