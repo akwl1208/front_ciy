@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>js : document</title>
+</head>
+<body>
+	<a href="" class="link">링크입니다</a>
+	<p class="title">단락입니다</p>
+	<a href="www.naver.com" class="link">네이버</a>
+	<input type="text" name="id">
+	<input type="password" name="pw" id="pw"></br>
+
+	<script>
+		// HTML 요소 선택
+		/* document.getElementsByTagName('태그명')
+			- 태그명과 일치하는 요소들을 배열에 저장
+			- 선택된 요소가 1개여도 배열에 저장
+			- 배열처럼 변수명[번지]로 접근
+		*/
+		console.log('===========getElementsByTagName');
+		var a = document.getElementsByTagName('a');
+		console.log(a);
+		var p = document.getElementsByTagName('p');
+		console.log(p);
+		var div = document.getElementsByTagName('div');
+		console.log(div);
+		console.log(a[0]);
+		console.log(a[0].innerText);
+		
+		/* document.getElementsByClassName('클래스명')
+			- 클래스명이 포함된  요소들을 배열에 저장
+			- 선택된 요소가 1개여도 배열에 저장
+			- 배열처럼 변수명[번지]로 접근
+		*/
+		console.log('===========getElementsByClassName');
+		var link = document.getElementsByClassName('link');
+		console.log(link);
+
+		/* document.getElementsByName('name명')
+			- name명과 일치하는 요소들을 배열에 저장
+			- 선택된 요소가 1개여도 배열에 저장
+			- 배열처럼 변수명[번지]로 접근
+		*/
+		console.log('===========getElementsByName');
+		var id = document.getElementsByName('id');
+		console.log(id);
+
+		/* document.getElementById('id명')
+			- id명과 일치하는 요소를 선택
+			- 선택된 요소가 없으면 null로 저장
+		*/
+		console.log('===========getElementById');
+		var pw = document.getElementById('pw');
+		console.log(pw);
+
+		/* document.querySelectorAll('선택자')
+			- 선택자와 일치하는 요소들을 배열에 저장
+			- 선택된 요소가 1개여도 배열에 저장
+			- 배열처럼 변수명[번지]로 접근
+		*/
+		console.log('===========queryselectorAll');
+		var selector = document.querySelectorAll('.link');
+		console.log(selector);
+		var selector = document.querySelectorAll('[name=id]');
+		console.log(selector);
+
+		/* document.createElement('태그명')
+			- 태그 생성
+			- 요소.innerText = 값; 
+			 	: 요소의 텍스트 설정
+			- 부모요소.appendChild(자식요소);
+			 	: 자식요소를 부모요소 제일 마지막에 추가 
+		*/
+		console.log('===========createElement');
+		var div = document.createElement('div');
+		div.innerText = '안녕';
+		document.body.appendChild(div);
+		console.log(div);
+		/* document.createTextNode('텍스트')
+			- 요소에 넣을 문자열 추가
+		*/
+		var divText = document.createTextNode('뭐여');
+		div.appendChild(divText);
+		console.log(div);
+	</script>
+
+	<!-- jquery -->
+	<script src="//code.jquery.com/jquery-3.4.1.js"></script>
+	<script>
+		console.log('===========jquery');
+		var obj = $('[name=id]');
+		console.log(obj);
+	</script>
+</body>
+</html>
