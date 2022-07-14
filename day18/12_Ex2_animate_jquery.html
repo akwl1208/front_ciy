@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>jquery : animate 예제</title>
+	<script src="../js/jquery.js"></script>
+	<style>
+		*{padding: 0; margin: 0;}
+		.btn{
+			width: 50px; margin: 10px;
+		}
+		.box{
+			width: 100px; height: 100px; background-color: red;
+			position: relative; 
+		}
+		.box1{left: -100px;}
+		.box2{background-color: yellow; margin-left: -100px;}
+	</style>
+</head>
+<body>
+	<!-- 박스가 숨겨져 있다가 나오는 버튼 -->
+	<button class="btn show">show</button>
+	<button class="btn hide">hide</button>
+	<div class="box box1"></div>
+	<div class="box box2"></div>
+	<script>
+		$(function () {
+			$('.show').click(function () {
+				$('.box1').animate({'left' : '0px'},1000);
+				$('.box2').animate({'margin-left' : '+=100px'},1000);
+			})
+			$('.hide').click(function () {
+				$('.box1').animate({'left' : '-100px'},1000);
+				$('.box2').animate({'margin-left' : '-=100px'},1000);
+			})
+		})
+	</script>
+</body>
+</html>
