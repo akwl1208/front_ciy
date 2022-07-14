@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>js : window - open</title>
+</head>
+<body>
+	<button onclick="open1()">새창 열기</button>
+	<button onclick="window.close()">현재창 닫기</button>
+	<button onclick="closeChild()">자식창 닫기</button>
+	<script>
+		/* 
+			window 객체의 메소드는 window 생략 가능
+			open()을 하면 window.open()이 실행
+		*/
+		var newWindow = null;
+		var childWindowList =[];
+		function open1(){
+			// 새창을 열기 전, 열린 새창이 있으면 닫고 새 창을 연다.
+			/*if(newWindow != null)
+				newWindow.close();*/
+			newWindow = window.open('05_open_window_js_child.html','');
+			childWindowList.push(newWindow);
+		}
+		function closeChild(){
+			/*if(newWindow != null)
+				newWindow.close();*/
+			if(childWindowList.length != 0)
+				childWindowList.pop().close();
+			else
+				console.log('새창이 없습니다');
+		}
+	</script>
+</body>
+</html>
