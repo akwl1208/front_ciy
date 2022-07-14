@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>js : 이벤트</title>
+</head>
+<body>
+	<!-- 버튼을 클릭하면 콘솔에 텍스트를 찍어내는 이벤트 -->
+	<!-- 방법1 : 태그 옆에 속성으로 이벤트 추가 -->
+	<button onclick="test()">버튼1</button>
+	<button onclick="console.log('테스트2')">버튼2</button>
+	<script>
+		
+		/* 방법2: 요소에 이벤트 등록 방법
+			요소.on이벤트 = function(){
+				실행코드;
+			}
+		*/
+		var btn = document.createElement('button');
+		var btnTxt = document.createTextNode('클릭');
+		btn.appendChild(btnTxt);
+		document.body.appendChild(btn);
+		btn.onclick = () => console.log('안녕');
+		
+		function test(){
+			console.log('테스트');
+		}
+	</script>
+</body>
+</html>
