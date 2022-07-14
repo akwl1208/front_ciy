@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>js : 클릭 이벤트 예제</title>
+	<style>
+		div{
+			border: 1px solid black;
+			width: 200px; margin: 10px 0; 
+			text-align: center; line-height: 20px;
+		}
+	</style>
+</head>
+<body>
+	<!-- 버튼을 클릭하면 안녕이라고 적혀있는 박스 생성하는 코드 작성 -->
+	<button onclick="create_box_hi()">안녕 박스 생성</button>
+	<script>
+		function create_box_hi(){
+			var div = document.createElement('div');
+			div.innerText = '안녕';
+			document.body.appendChild(div);
+		}
+	</script>
+</body>
+</html>
