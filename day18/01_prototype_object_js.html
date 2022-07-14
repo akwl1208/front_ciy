@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>js : 객체 - 프로토타입</title>
+</head>
+<body>
+	<script>
+		/* 프로토타입 생성 : 생성자 함수를 통해
+			function 함수이름(매개변수들){
+				초기화할 값;
+			}
+		*/
+		function Dog(name, age){
+			this.name = name;
+			this.age = age;
+			this.print = function(){
+			console.log(this.name + ' : ' + this.age);
+		}
+	}
+		var dog1 = new Dog('멍멍이', 2);
+		var dog2 = new Dog('왈왈이', 4);
+
+		/* 전체가 아니라 dog1 객체에만 속성과 메소드가 추가, 속성 삭제됨
+		dog1.color = '흰색';
+		dog1.print = function(){
+			console.log(this.name + ' : ' + this.age);
+		}
+		delete dog1.color; */
+		console.log(dog1);
+		console.log(dog2);
+		dog1.print();
+		console.log('=====================');
+
+		//이미 생성된 객체에 속성과 메소드 추가
+		Dog.prototype.color = '흰색';
+		Dog.prototype.printColor = function(){
+			console.log(this.color);
+		};
+		dog1.printColor();
+		console.log('=====================');
+		
+		// enumerable : 열거가 가능할지 말지 결정. 기본은 true
+		Object.defineProperty(dog1,'name',{enumerable : false});
+		for(index in dog1){
+			console.log(index + ' : ' + dog1[index]);
+		}
+		console.log('=====================');
+		for(index in dog2){
+			console.log(index + ' : ' + dog2[index]);
+		}
+		console.log('=====================');
+
+		//key는 enumerable이 true인 값만
+		console.log(Object.keys(dog1));
+		//getOwnProperty는 enumerable에 상관없이
+		console.log(Object.getOwnPropertyNames(dog1));
+
+</script>
+</body>
+</html>
