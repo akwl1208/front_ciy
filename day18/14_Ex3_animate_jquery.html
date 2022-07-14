@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>jquery : animate 예제</title>
+	<script src="../js/jquery.js"></script>
+	<style>
+		.btn{margin: 10px 0;}
+		/* <내가 푼거> */
+		.container{
+			width: 300px; height: 100px; overflow: hidden;
+		}
+		.box{
+			width: 600px; height: 100%; 
+		}
+		.box1{
+			width: 50%; height: 100%; background-color: yellow;
+			float: left;
+		}
+		.box2{
+			width: 50%; height: 100%; background-color: yellowgreen;
+			float: left;
+		}
+
+	</style>
+</head>
+<body>
+	<!-- 내가 푼거 -->
+	<button class="btn prev">이전</button>
+	<button class="btn next">다음</button>
+	<div class="container">
+		<div class="box">
+			<div class="box1">page1</div>
+			<div class="box2">page2</div>
+		</div>
+	</div>
+	<script>
+		$(function () {
+			$('.prev').click(function () {
+				$('.box').animate({'margin-left' : '0px'},1000);
+			})
+			$('.next').click(function () {
+				$('.box').animate({'margin-left' : '-300px'},1000);
+			})
+		})
+	</script>
+</body>
+</html>
