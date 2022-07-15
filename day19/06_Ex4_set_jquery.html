@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>jquery : set 예제</title>
+	<script src="../js/jquery.js"></script>
+	<style>
+		.box{height: 50px; background-color:grey; color: white;}
+	</style>
+</head>
+<body>
+	<!-- 값을 입력하면 상단 박스에 값이 나타나는 코드 -->
+	<!-- 내가 푼거 -->
+	<div class="box"></div>
+	<input type="text" name="id">
+	<button class="btn">내용바꾸기</button>
+	<script>
+		$(function () {
+			$('.btn').click(function () {
+				// var val = $('[name=id]').val();
+				$('.box').text($('[name=id]').val());	
+			})
+		})
+	</script>
+</body>
+</html>
