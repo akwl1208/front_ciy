@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>jquery : animate 예제</title>
+	<script src="../js/jquery.js"></script>
+	<style>
+		.btn{margin: 10px 0;}
+		/* <내가 푼거> */
+		.container{
+			width: 300px; height: 100px;
+			border: 3px solid red; overflow: hidden;
+		}
+		.box-group{
+			width: 100%; height: 300px; 
+			background-color: yellow;
+		}
+		.box{
+			width: 100%; height: calc(100% / 3);
+		}
+		.box:nth-child(2n-1){
+			background-color: yellowgreen;
+		}
+		/* 선생님 풀이 */
+		.view{
+			width: 300px; height: 50px; 
+			border: 3px solid balck; overflow: hidden;
+		}
+		.box2{
+			height: 50px; line-height: 50px; text-align: center;
+			background-color: lightblue;
+		}
+		.box2+.box2{
+			background-color: lightcoral;
+		}
+	</style>
+</head>
+<body>
+	<!-- 버튼을 클릭하면 박스가 상하로 움직이는 코드 -->
+	<!-- <내가 푼거> -->
+	<button class="btn prev">이전</button>
+	<button class="btn next">다음</button>
+	<div class="container">
+		<div class="box-group">
+			<div class="box">1</div>
+			<div class="box">2</div>
+			<div class="box">3</div>
+		</div>
+	</div>
+	<script>
+		var min = -200, max = 0;
+		var mt = max;
+		$(function () {
+			$('.prev').click(function () {			
+				if(mt < max){
+					mt += 100;
+					$('.box-group').animate({'margin-top' : '+=100px'},100);
+				}				
+			})
+			$('.next').click(function () {
+				if(mt > min ){
+					mt -= 100;					
+					$('.box-group').animate({'margin-top' : '-=100px'},100);
+				}			
+			})
+		})
+	</script>
+
+	<!-- 선생님 풀이 -->
+	<button class="btn btn-up">위로</button>
+	<button class="btn btn-down">아래로</button>
+	<div class="view">
+		<div class="container2">
+			<div class="box2">1</div>
+			<div class="box2">2</div>
+		</div>
+	</div>
+	<script>
+		var min = -200, max = 0;
+		var mt = max;
+		$(function () {
+			$('.btn-up').click(function () {			
+				$('.box2:first-child').animate({'margin-top' : '-50px'},100);
+			})
+			$('.btn-down').click(function () {				
+				$('.box2:first-child').animate({'margin-top' : '0px'},100);		
+			})
+		})
+	</script>
+</body>
+</html>
