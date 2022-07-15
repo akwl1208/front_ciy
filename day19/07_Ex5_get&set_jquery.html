@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>jquery : get&set 예제</title>
+	<script src="../js/jquery.js"></script>
+</head>
+<body>
+	<!-- 버튼을 클릭하면 숫자가 증가/감소하는 코드 -->
+	<!-- 내가 푼거 -->
+	<button class="prev"> < </button>
+	<span class="page">1</span>
+	<button class="next"> > </button>
+	<script>
+		/*
+			get으로 가져온 값은 문자열이기 때문에 
+			page = page + 1;로 작성했을 때 문자열로 11이 나올수도 있다
+			그래서 parseInt로 바꿔서 값을 저장해주는 것이 좋다
+		*/
+		var min = 1, max= 18;
+		$(function () {
+			var page = $('.page').text();
+			$('.prev').click(function () {
+				page = (page<min)? max : page;
+				$('.page').text(page--);
+			})
+			$('.next').click(function () {
+				page = (page>max)? min : page;
+				$('.page').text(page++);
+			})
+		})
+	</script>
+</body>
+</html>
