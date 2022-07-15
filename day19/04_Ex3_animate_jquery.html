@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>jquery : animate 예제</title>
+	<script src="../js/jquery.js"></script>
+	<style>
+		.btn{margin: 10px 0;}
+		/* <내가 푼거> */
+		.container{
+			width: 600px; height: 100px;
+			border: 3px solid red; overflow: hidden;
+		}
+		.box-group{
+			width: 1200px; height: 100%; 
+			background-color: yellow;
+		}
+		.box{
+			width: 200px; height: 100%; float: left;
+		}
+		.box:nth-child(2n-1){
+			background-color: yellowgreen;
+		}
+
+		/* 선생님 풀이 */
+		.view{ width: 300px; height: 50px; border: 3px solid black; overflow: hidden;}
+		.container2{width: 600px;}
+		.container2::after{clear: both; display: block; content: '';}
+		.box2{
+			float: left; width: 100px; height: 50px; 
+			background-color: yellow;
+		}
+		.box2:nth-child(2n){ background-color: gray;}
+	</style>
+</head>
+<body>
+	<!-- 버튼을 클릭하면 박스가 좌우로 움직이는 코드 -->
+	<!-- <내가 푼거> -->
+	<button class="btn prev">이전</button>
+	<button class="btn next">다음</button>
+	<div class="container">
+		<div class="box-group">
+			<div class="box">1</div>
+			<div class="box">2</div>
+			<div class="box">3</div>
+			<div class="box">4</div>
+			<div class="box">5</div>
+			<div class="box">6</div>
+		</div>
+	</div>
+	<script>
+		var min = -600, max = 0;
+		var ml = max;
+		$(function () {
+			$('.prev').click(function () {			
+				if(ml < max){
+					ml += 200;
+					$('.box-group').animate({'margin-left' : '+=200px'},100);
+				}				
+			})
+			$('.next').click(function () {
+				if(ml > min ){
+					ml -= 200;					
+					$('.box-group').animate({'margin-left' : '-=200px'},100);
+				}			
+			})
+		})
+	</script>
+
+	<!-- 선생님 풀이 -->
+	<button class="btn btn-prev">이전</button>
+	<button class="btn btn-next">다음</button>
+	<div class="view">
+		<div class="container2">
+			<div class="box2">1</div>
+			<div class="box2">2</div>
+			<div class="box2">3</div>
+			<div class="box2">4</div>
+			<div class="box2">5</div>
+			<div class="box2">6</div>
+		</div>
+	</div>
+	<script>
+		var min = 1, max = 4;
+		var page = 1;
+		$(function () {
+			$('.btn-prev').click(function () {		
+				if(page != min){
+					$('.container2').animate({'margin-left' : '+=100px'});
+					page--;					
+				}
+			})
+			$('.btn-next').click(function () {										
+				if(page != max){
+					$('.container2').animate({'margin-left' : '-=100px'});	
+					page++;					
+				}
+			})
+		})
+	</script>
+</body>
+</html>
