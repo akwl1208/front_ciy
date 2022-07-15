@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>jquery : get&set 예제 - button</title>
+	<script src="../js/jquery.js"></script>
+	<style>
+		.btn, .btn2{margin : 0 10px 10px 0;}
+	</style>
+</head>
+<body>
+	<!-- 버튼을 클릭하면 버튼이 생성되고, 새로 생긴 버튼을 클릭해도 버튼이 생기는 코드 -->
+	<!-- 내가 푼거 -->
+	<div class="area">
+		<button class="btn">버튼 생성</button>
+	</div>
+	<script>
+		$(function () {
+			$(document).on('click', '.btn', function(){
+				var html = $('.area').html();
+				$('.area').html(html + '<button class="btn">버튼 생성</button>');							
+			})
+		})
+	</script>
+
+	<!-- 선생님 풀이 : 함수 생성 후, 속성으로 onclick 추가-->
+	<div class="box">
+		<button class="btn2" onclick="addBtn()">버튼1</button>
+	</div>
+	<script>
+		function addBtn() {
+				var html = $('.box').html();
+				$('.box').html(html + '<button class="btn2">버튼1</button>');
+			}
+	</script>
+</body>
+</html>
