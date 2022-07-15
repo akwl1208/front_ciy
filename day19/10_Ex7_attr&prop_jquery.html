@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>jquery : attr&prop 예제 - checkbox</title>
+	<script src="../js/jquery.js"></script>
+</head>
+<body>
+	<!-- 체크하면 콘솔에 value 값이 입력되고, 체크한 순서대로 누적되어 값이 출력됨
+			 체크를 해제하면 해당 값이 사라짐 -->
+	<input type="checkbox" name="fruit" value="apple" class="a">사과
+	<input type="checkbox" name="fruit" value="orange" class="b">오렌지
+	<input type="checkbox" name="fruit" value="banana" class="c">바나나
+	<script>
+		$(function(){
+			var arr = [];
+			$('.a').click(function () {
+				var val = $('.a').val();
+				if($('.a').prop('checked') == true)
+					arr.push(val);
+				else{
+					var index = arr.indexOf(val);
+					arr.splice(index, 1);			
+				}	
+				console.log(arr);			
+			})
+			$('.b').click(function () {
+				var val = $('.b').val();
+				if($('.b').prop('checked') == true)
+					arr.push(val);
+				else{
+					var index = arr.indexOf(val);
+					arr.splice(index, 1);
+				}	
+				console.log(arr);
+			})
+			$('.c').click(function () {
+				var val = $('.c').val();
+				if($('.c').prop('checked') == true)
+					arr.push(val);
+				else{
+					var index = arr.indexOf(val);
+					arr.splice(index, 1);
+				}	
+				console.log(arr);
+			})
+		})
+	</script>
+</body>
+</html>
