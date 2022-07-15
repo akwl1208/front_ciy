@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>jquery : event</title>
+	<script src="../js/jquery.js"></script>
+</head>
+<body>
+	<button class="btn">script 전 버튼</button>
+	<script>
+		$(document).on('click', '.btn', function(){
+			console.log('클릭');
+		});
+	</script>
+	<!-- script 후 버튼은 이벤트가 등록 안될 수도 있음
+			-> 추가 작업이 필요함
+				$(document).on('이벤트명', '선택자명', function(){})  -->
+	<button class="btn">script 후 버튼</button> </br>
+ 
+	<!-- 코드 위치 확인 잘하기! -->
+	<button class="btn1">버튼</button>
+	<button class="btn2">버튼(btn1 이벤트 안에 btn2 이벤트 있음)</button>
+	<script>
+		$(function(){
+			$('.btn1').click(function(){
+				console.log('클릭1');
+				$('.btn2').click(function(){
+				console.log('클릭2');
+				})
+			})
+		})
+	</script>
+
+
+</body>
+</html>
