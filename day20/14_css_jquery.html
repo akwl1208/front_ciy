@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>jquery : css</title>
+	<script src="../js/jquery.js"></script>
+	<style>
+		.box{
+			width: 100px; height: 100px; background-color: yellow;
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+	<script>
+		/*
+			* css('속성명') : 속성명에 맞는 속성값을 가져옴
+			* css('속성명','값') : 속성명에 맞는 속성값을 설정함(style 속성으로)
+			* css()가 우선순위가 높기 때문에 사용시 주의 -> 원하는 스타일이 적용 안 될 수도 있음
+		*/
+		var box = $('.box');
+		// 속성 확인
+		var backgroundColor = box.css('background-color');
+		console.log('background-color : ' + backgroundColor);
+		var width = box.css('width');
+		console.log('width : ' + width);
+		// 속성 수정
+		box.css('width', '200px');
+		// 여러 속성을 적용
+		box.css({
+			'height' : '200px',
+			'border' : '1px solid black'
+		});
+
+	</script>
+</body>
+</html>
