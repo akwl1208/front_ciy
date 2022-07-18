@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>jquery : CSS class </title>
+	<script src="../js/jquery.js"></script>
+	<style>
+		.box{
+			width: 100px; height: 100px; vertical-align: top;
+			display: inline-block; background-color: yellow;
+		}
+		.select{background-color: red;}
+	</style>
+</head>
+<body>
+	<!-- 
+		* addClass('클래스명') : 요소에 클래스를 추가 
+		* removeClass('클래스명') : 요소에 클래스를 제거 
+		* toggleClass('클래스명') : 요소에 클래스를 있으면 제거, 없으면 추가
+		* hasClass('클래스명') : 요소에 클래스가 있는지 없는지 알려줌  
+	-->
+	<div class="box select">1</div>
+	<div class="box">2</div>
+	<div class="box">3</div>
+	<div class="box">4</div>
+	<script>
+		$(function () {
+			$('.box').addClass('select'); //모든 박스에 select 추가
+			$('.box').removeClass('select'); // 모든 박스에 select 제거
+			$('.box').toggleClass('select'); //모든 박스에 select toggle
+		})
+	</script>
+</body>
+</html>
