@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>jquery : CSS class 예제 </title>
+	<script src="../js/jquery.js"></script>
+	<style>
+		.box{
+			width: 100px; height: 100px; vertical-align: top;
+			display: inline-block; background-color: yellow;
+		}
+		.select{background-color: red;}
+	</style>
+</head>
+<body>
+	<!-- 박스를 클릭하면 클릭한 박스가 빨간색으로 변하는 코드 -->
+	<div class="box">1</div>
+	<div class="box">2</div>
+	<div class="box">3</div>
+	<div class="box">4</div>
+	<script>
+		// 클릭하면 요소가 빨간색으로(누적됨)
+		$(function () {
+			$('.box').click(function() {
+				$(this).toggleClass('select');
+			})
+		})
+		//클릭한 요소만 빨간색
+		$(function () {
+      $('.box').each(function () {
+        $(this).click(function(){
+					$('.box').removeClass('select');
+          $(this).addClass('select');
+        })
+      })
+    })
+
+	</script>
+</body>
+</html>
