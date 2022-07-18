@@ -111,11 +111,12 @@
 			})
 			// box-text에 선택한 과일을 출력하게 하는 함수
 			function printText() {
-				$('.box-text').text('');
+				$('.box-text').text(arr.join(''));
+				/* $('.box-text').text('');
 				arr.forEach(function (v){			
 					var text = $('.box-text').text();				
 					$('.box-text').text(text + ' '+ v);
-				})	
+				})*/	
 			}
 		})
 	</script>
