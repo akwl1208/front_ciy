@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>jquery : 자손 탐색 - traversing</title>
+	<script src="../js/jquery.js"></script>
+	<style>
+		*{padding: 0; margin: 0;}
+		ul, ol{list-style: none;}
+		a{text-decoration: none;}
+		div{padding: 10px;}
+		
+		.box{background-color: yellow;}
+		.box-in{background-color: gray;}
+		.box-left, .box-right{
+			float: left; width: 50%; height: 100px; box-sizing: border-box;
+			background-color: pink;
+ 		}
+		.box-right{background-color: greenyellow;}
+		.box-in::after{clear: both; display: block; content: '';} 
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="box-in">
+			<div class="box-left">
+				<a href="#" class="link-naver">네이버</a>
+				<a href="#" class="link-daum">다음</a>
+			</div>
+			<div class="box-right">
+				<ul class="list">
+					<li class="item">
+						<a href="#" class="link">1</a>
+					</li>
+					<li class="item">
+						<a href="#" class="link">2</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<script>
+		/*
+			* children() : 자식 요소 선택
+			* children('선택자') : 자식 요소 중 '선택자'와 일치하는 요소들을 선택
+			* find('선택자') : 자손 요소 중 '선택자'와 일치하는 요소들을 선택
+		*/
+		$(function () {
+			const box = $('.box');
+			box.children().css('border', '3px solid red'); //box-in
+			box.find('*').css('border-bottom', '3px solid blue'); //box-in, box-left,box-right, a, ul, li, a
+			box.find('a').css('color', 'red'); //link		
+		})
+	</script>
+</body>
+</html>
