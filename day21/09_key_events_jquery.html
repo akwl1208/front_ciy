@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>jquery : key-events</title>
+	<script src="../js/jquery.js"></script>
+	<style>
+		.yellow{background-color: yellow;}
+		.red{color: red;}
+	</style>
+</head>
+<body>
+	<input type="text" class="text">
+	<script>
+		/*
+			* keyup(함수) : 키보드를 뗐을 때 동작
+				- 소문자 a와 대문자 A의 keycode 같음
+			* keydown(함수) : 모든 키를 눌렀을 때 동작 
+				- 소문자 a와 대문자 A의 keycode 다름
+			* keypress(함수) : 키보드를 눌렀을 때 동작(영문, 숫자, 특수문자 등 아스키코드로 표현 가능한 것만)
+			* 키보드를 눌렀다가 뗐을 때 동작 순서
+				: keydown -> keypress -> keyup
+		*/
+		$(function() {
+			var text = $('.text');
+			text.keydown(function (e) {
+				$(this).addClass('yellow');
+				console.log('keydown : ' + e.keyCode);
+			})
+			text.keypress(function (e) {
+				$(this).addClass('red');
+				console.log('keypress : ' + e.keyCode);
+			})
+			text.keyup(function () {
+				$(this).removeClass('yellow');
+			})
+		})
+	</script>
+</body>
+</html>
