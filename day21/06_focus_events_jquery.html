@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>jquery : focus-events</title>
+	<script src="../js/jquery.js"></script>
+	<style>
+		.bg-yellow{background-color: yellow;}
+		.bg-pink{background-color: pink;}
+	</style>
+</head>
+<body>
+	<input type="text" placeholder="아이디"><br>
+	<input type="password" placeholder="비번">
+	<script>
+		/*
+			* focus(함수) : focusin
+			* blur(함수) : focusout
+			* focusin(함수) : 
+			* focusout(함수) : 
+			* focus() : 요소 활성화
+		*/
+		// 한번 css 속성을 지정하면 style 속성에 남기 때문에 focus를 해제해도 배경이 노랑
+		$(function () {
+			// focus
+			/*
+			$('input').focusin(function () {
+				// $(this).css('background', 'yellow');
+				$(this).addClass('bg-yellow');
+			})
+			$('input').focusout(function () {
+				// $(this).css('background', 'none');
+				$(this).removeClass('bg-yellow');
+			})
+			*/
+			$('input').focus(function () {
+				$(this).toggleClass('bg-yellow');
+			})
+			$('input').blur(function () {
+				$(this).toggleClass('bg-yellow');
+			})
+			$('input').first().focus();
+
+			// hover
+			/*
+			$('input').hover(function () {
+				$(this).addClass('bg-pink');
+			},function () {
+				$(this).removeClass('bg-pink');
+			})*/
+			$('input').hover(function () {
+				$(this).toggleClass('bg-pink');
+			})
+		})
+	</script>
+</body>
+</html>
