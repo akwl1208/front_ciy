@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>jquery : 형제 탐색 - traversing</title>
+	<script src="../js/jquery.js"></script>
+	<style> 
+	</style>
+</head>
+<body>
+	<ul class="list">
+		<li class="item first bold"><a href="#" class="link">1</a></li>
+		<li class="item bold"><a href="#" class="link">2</a></li>
+		<li class="item"><a href="#" class="link">3</a></li>
+		<li class="item center"><a href="#" class="link">4</a></li>
+		<li class="item"><a href="#" class="link">5</a></li>
+		<li class="item"><a href="#" class="link">6</a></li>
+		<li class="item last bold"><a href="#" class="link">7</a></li>
+	</ul>
+	<script>
+		/*
+			* siblings() : 형제 요소 선택
+			* siblings('선택자') : 형제 요소 중 선택자와 일차하는 요소 선택
+			* prev() : 앞에 있는 형제 요소 선택
+			* prevAll() : 앞에 있는 모든 형제 요소 선택
+			* prevAll('선택자') : 앞에 있는 형제 요소 중 선택자와 일치하는 요소 선택
+			* prevuntil('선택자') : 앞에 있는 형제 요소 중 선택자 전까지의 요소 선택
+			* next() : 뒤에 있는 형제 요소 선택	
+			* nextAll() : 뒤에 있는 모든 형제 요소 선택
+			* nextAll('선택자') : 뒤에 있는 형제 요소 중 선택자와 일치하는 요소 선택
+			* nextuntil('선택자') : 뒤에 있는 형제 요소 중 선택자 전까지의 요소 선택
+		*/
+		$(function () {
+			const center = $('.center');
+			center.siblings().css('color', 'red'); //a태그 색은 변하지 않음 -> a 태그는 기본색이 지정되어 있어서
+			center.siblings().children().css('color', 'orange'); //center 빼고 a태그 글자 오렌지
+			center.siblings('.first').children().css('text-decoration', 'none'); //1에 밑줄 사라짐
+			center.prev().css('font-size', '30px'); //4 앞에 3의 글자가 30px
+			center.next().css('text-align', 'center') //4 뒤의 5가 가운데 정렬
+			center.prevAll().css('color', 'green'); //4 앞에 1,2,3 글자 초록색
+			center.nextAll().css('color', 'blue'); //4 뒤에 5,6,7 글자 파란색
+			center.prevAll('.bold').css('background-color', 'yellow'); //4 앞에 1,2,3 중 bold 클래스가 포함된 요소만 배경색 노랑
+			center.nextAll('.bold').css('background-color', 'yellow'); //4 앞에 5,6,7 중 bold 클래스가 포함된 요소만 배경색 노랑
+			center.prevUntil('.first').css('font-weight', 'bold'); //4 앞에 first 클래스 사이에 있는 요소들 글자 굵게
+			center.nextUntil('.last').css('font-weight', 'bold'); //4 뒤에 last 클래스 사이에 있는 요소들 글자 굵게
+		})
+	</script>
+</body>
+</html>
