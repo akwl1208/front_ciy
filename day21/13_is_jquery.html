@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>jquery : is</title>
+	<script src="../js/jquery.js"></script>
+	<style>
+		.box{
+			position: relative; width: 100px; height: 100px;
+			background-color: yellow; margin-bottom: 10px;
+		}
+	</style>
+</head>
+<body>
+	<button class="btn">클릭</button> <input type="checkbox" class="ck">
+	<div class="box"></div>
+	<div class="box"></div>
+	<script>
+		$(function () {
+			$('.btn').click(function () {
+				var box = $('.box'); 
+				// box가 멈춰있으면 실행, 실행 중이면 실행 안됨
+				if(!box.is(':animated')){
+					box.animate({'left': '100px'});
+					box.animate({'top': '100px'});
+					box.animate({'left': '0px'});
+					box.animate({'top': '0px'});
+				}
+			})
+			// 첫번째 요소 확인
+			$('.box').click(function () {
+				if($(this).index() == 1){
+					console.log('첫번째 요소입니다');
+				}else{
+					console.log('첫번째 요소가 아닙니다');
+				}
+			})
+			// 체크박스가 체크됬는지 확인
+			$('.ck').click(function () {
+				console.log($(this).is(':checked'));
+			})
+		})
+	</script>
+</body>
+</html>
