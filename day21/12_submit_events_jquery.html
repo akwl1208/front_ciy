@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>jquery : submit-events</title>
+	<script src="../js/jquery.js"></script>
+</head>
+<body>
+	<form action="">
+		<input type="text" name="id"> <br>
+		<button class="btn" >전송</button>
+	</form>
+	<script>
+		/* 
+		* submit(함수) : form 태그가 서버에 전송하기 전 실행되는 이벤트
+			- form 태그 안에 있는 type이 submit인 버튼을 클릭했을 때 동작
+			- return이 false면 서버로 데이터를 전송하지 않음
+			- return이 없거나 true면 서버로 데이터 전송
+		* 동작 순서
+		 	- type이 submit인 버튼을 클릭(입력하고 엔터)
+			- type이 submit인 버튼의 click이벤트 동작
+			- return 값이 false면 중지 -> submit까지 가지 않음
+			- return 값이 true거나 없으면 submit 이벤트 발생
+			- submit 이벤트에서 return 값이 false면 서버로 데이터를 전송하지 않음
+			- submit 이벤트에서 return 값이 없거나 true면 서버로 데이터 전송
+		*/
+		$(function () {	
+			/*
+			$('form').submit(function () {
+				console.log(1);
+				// 데이터가 서버로 전송되어 콘솔창에 1이 나타났다 사라짐
+				// 하지만 return false를 하면 서버로 전송이 취소되어 콘솔창에 1이 남아있음
+				return false;
+			})
+			*/
+			/*
+			$('form').submit(function () {
+				var id = $('[name=id]').val();
+				if(id == ''){
+					alert('아이디는 반드시 입력해야 합니다');
+					return false;
+				}
+				return true;
+			})
+			*/
+			$('form').submit(function () {
+				return true;
+			})
+			$('.btn').click(function () {
+				console.log('버튼 클릭');
+				return false;
+			})
+		})
+	</script>
+</body>
+</html>
