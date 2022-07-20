@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>jquery : 체크한 값이 각각 박스에 예제</title>
+	<script src="../js/jquery.js"></script>
+	<style>
+	.box{
+		width: 150px; height: 50px; border: 1px solid black;
+		line-height: 50px; margin: 10px 0; display: inline-block;
+		vertical-align: top;
+	}
+	</style>
+</head>
+<body>	
+	<!-- 선택된 체크박스의 값이 각각 박스에 각각 출력됨.  -->
+	<div>취미를 선택하세요.(최대 2개)</div>
+	<div class="text-box">
+		<div class="box box1"></div>
+		<div class="box box2"></div>
+	</div>
+	<input type="checkbox" value="농구">농구
+	<input type="checkbox" value="야구">야구
+	<input type="checkbox" value="영화보기">영화보기
+	<input type="checkbox" value="축구">축구
+	<input type="checkbox" value="음악감상">음악감상
+	<script>
+		var arr = [];
+		var maxSelectCount = 2;
+		$(function () {
+			$('input').click(function () {			
+				var val = $(this).val();
+				if($(this).is(':checked')){					
+					var count = $('input').filter(':checked').length;
+					if(count > maxSelectCount){
+						alert('최대 '+ maxSelectCount +'개 선택 가능');
+						$(this).prop('checked', false);
+					}	else{ 
+						arr.push(val);
+					}	
+				}else{
+					var index = arr.indexOf(val);
+					arr.splice(index,1);
+				}
+				$('.box').text('');
+				arr.forEach(function (v,i) {
+					$('.box').eq(i).text(v);
+				})
+				/*
+				< 내가 풀다가 못푼거..>
+				arr.forEach(function(v, i){
+					if(i == 0){
+						$('.box1').text(v);
+					}else{
+						$('.box2').text(v);
+					}
+				})
+				*/
+			})
+		})
+	</script>
+</body>
+</html>
