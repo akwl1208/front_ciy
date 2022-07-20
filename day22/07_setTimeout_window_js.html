@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>js : 시간-window함수</title>
+	<script src="../js/jquery.js"></script>
+</head>
+<body>
+	<button class="btn1">버튼1</button>
+	<button class="btn2">시작</button>
+	<button class="btn3">중지</button>
+	<script>
+		/*
+			* setTimeout(함수,n) : n[ms]이 지난 후 함수가 실행됨
+			* setInterval(함수,n) : n[ms]마다 함수가 실행됨
+				- 정수값을 가진 아이디가 반환됨
+			* clearInterval(아이디) : setInterval으로 주기적으로 동작하던 함수 작업을 멈춤
+		*/
+		// 버튼1을 클릭하면 1초 뒤 1초라고 콘솔에 출력
+		$('.btn1').click(function(){
+			setTimeout(function(){
+				console.log('1초')
+			}, 1000);
+		})
+		// 버튼2을 클릭하면 1초마다 1부터 콘솔에 출력
+		var num = 0;
+		var id = null;
+		$('.btn2').click(function(){
+			id = setInterval(() => { 
+				console.log(++num +'초');
+			}, 1000);
+		})
+		// 버튼3을 클릭하면 1초마다 1부터 콘솔에 출력하는 것을 멈춤
+		$('.btn3').click(function(){
+			if(id != null){
+				clearInterval(id);
+				id=null;
+			}	
+		})
+	</script>
+</body>
+</html>
