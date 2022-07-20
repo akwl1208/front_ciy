@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>js : 스탑워치 예제-재설정 </title>
+	<script src="../js/jquery.js"></script>
+	<style>
+	.view{
+		width: 300px; height: 50px; border: 2px solid black;
+		margin: 10px auto;
+		text-align: center; line-height: 46px; font-size: 30px;
+		letter-spacing: 1px; box-sizing: border-box;
+	}
+	.box-btn{width: 300px; margin: 0 auto;}
+	.box-btn::after{clear: both; display: block; content: '';}
+	.btn{
+		width: 98%; height: 30px; cursor: pointer;
+		margin-bottom: 10px; display: block;
+	}
+	.box-record{
+		box-sizing: border-box; width: 300px; height: 100px;
+		border: 2px solid black;
+		padding: 10px 0; margin: 0 auto; 
+		min-height: 74px; text-align: center; line-height: 50px;
+	}
+	.box-btn>div{width: 50%; float: left;}
+	</style>
+</head>
+<body>
+	<!-- 재설정 버튼을 누르면 시간과 기록이 초기화됨 -->
+	<div class="view">00:00.00</div>
+	<div class="box-btn">
+		<div class="left">
+			<button class="btn btn-lab">랩</button>
+			<button class="btn btn-reset">재설정</button>
+		</div>
+		<div class="right">
+			<button class="btn btn-start">시작</button>
+			<button class="btn btn-stop">중지</button>
+		</div>		
+	</div>
+	<div class="box-record"></div>
+	<script>
+		$(function () {
+			var ms = 0, s = 0, m = 0; //밀리초, 초, 분
+			var id = null;
+			$('.btn-start').click(function(){
+				if(id == null){
+					id = setInterval(() => { 
+						ms += 10;
+						if(ms == 1000){
+							ms=0; s++;
+						}
+						if(s == 60){
+							s=0; min++;	
+						}
+						$('.view').text(getStr(m,s,ms));
+					}, 10);
+				}		
+				showBtns(true,false,false,true);
+			})
+			$('.btn-stop').click(function(){
+				if(id != null){
+					clearInterval(id);
+					id=null;
+					showBtns(false,true,true,false);
+				}	
+			})
+			$('.btn-lab').click(function(){
+				if(id != null){
+					var str = 
+					'<div class="lab">' +
+						getStr(m,s,ms) +
+					'</div>';
+					$('.box-record').prepend(str);
+				}
+			})
+			$('.btn-reset').click(function(){
+				if(id == null){
+					ms = 0, s = 0, m = 0;
+					$('.view').text(getStr(m,s,ms));
+					$('.box-record').html('');
+					showBtns(true,false,true,false);
+				}		
+			})
+			showBtns(true,false,true,false);
+		})
+		function getStr(m,s,ms){
+			return fillZero(m) + ':' + fillZero(s) + "." + fillZero(ms/10);
+		}
+		function fillZero(num){
+			return num < 10? '0'+num : ''+num;
+		}
+		function showBtns(lab, reset, start, stop){
+			$('.btn').hide();
+			lab?$('.btn-lab').show():'';
+			reset?$('.btn-reset').show():'';
+			start?$('.btn-start').show():'';
+			stop?$('.btn-stop').show():'';
+		}
+	</script>
+</body>
+</html>
