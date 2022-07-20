@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>js : 스탑워치 예제 </title>
+	<script src="../js/jquery.js"></script>
+	<style>
+	.box, .view{
+		width: 300px; height: 50px; border: 2px solid black;
+		margin-bottom: 10px;
+		text-align: center; line-height: 50px; font-size: 30px;
+		letter-spacing: 1px;
+	}
+	.btn{width: 150px; margin-bottom: 20px;}
+	</style>
+</head>
+<body>
+	<div>내가 푼거</div>
+	<div class="box">00:00.00</div>
+	<button class="btn btn1">시작</button>
+	<button class="btn btn2">중지</button>
+	<div>선생님 풀이</div>
+	<div class="view">00:00.00</div>
+	<button class="btn start">시작</button>
+	<button class="btn stop">중지</button>
+	<script>
+		// <내가 푼거> 근데 숫자가 00:09:00 이런 식으로 표현되게 못하겠음
+		$(function () {
+			var msec = 0;
+			var sec = 0;
+			var min = 0;
+			var timer = null;
+			$('.btn1').click(function(){
+				timer = setInterval(() => { 
+					msec++;
+					if(msec == 100){
+						sec++;
+						msec=0;
+					}
+					if(sec == 60){
+						min++;
+						sec=0;
+					}
+					$('.box').text(min +':' + sec +'.' + msec);
+				}, 10);
+			})
+			$('.btn2').click(function(){
+				if(timer != null){
+					clearInterval(timer);
+					timer=null;
+				}	
+			})
+		})
+		// <선생님 풀이>
+		$(function () {
+			var ms = 0, s = 0, m = 0; //밀리초, 초, 분
+			var id = null;
+			$('.start').click(function(){
+				id = setInterval(() => { 
+					ms += 10;
+					if(ms == 1000){
+						ms=0;
+						s++;
+					}
+					if(s == 60){
+						s=0;
+						min++;	
+					}
+					$('.view').text(getStr(m,s,ms));
+				}, 10);
+			})
+			$('.stop').click(function(){
+				if(id != null){
+					clearInterval(id);
+					id=null;
+				}	
+			})
+		})
+		function getStr(m,s,ms){
+			return fillZero(m) + ':' + fillZero(s) + "." + fillZero(ms/10);
+		}
+		function fillZero(num){
+			return num < 10? '0'+num : ''+num;
+		}
+	</script>
+</body>
+</html>
