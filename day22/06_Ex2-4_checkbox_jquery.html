@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>jquery : 첫번째 박스만 빨간색 테두리 예제</title>
+	<script src="../js/jquery.js"></script>
+	<style>
+	.text-box{
+		width: 150px; height: 50px; border: 1px solid black;
+		line-height: 50px; margin: 10px 0; display: inline-block;
+		vertical-align: top;
+	}
+	.bd-none{
+		width: auto; border-color: white;
+	}
+	.first{
+		border-color: red;
+	}
+	</style>
+</head>
+<body>	
+	<!-- 값이 입력되지 않는 박스 중 첫번째 박스만 빨간색 테두리 예제 -->
+	<div>취미를 선택하세요.(최대 4개)</div>
+	<div>
+		<div class="text-box first"></div>
+		<div class="text-box"></div>
+		<div class="text-box"></div>
+		<div class="text-box"></div>
+	</div>
+	<input type="checkbox" class="check" value="농구">농구
+	<input type="checkbox" class="check" value="야구">야구
+	<input type="checkbox" class="check" value="영화보기">영화보기
+	<input type="checkbox" class="check" value="축구">축구
+	<input type="checkbox" class="check" value="음악감상">음악감상
+	<script>
+		var arr = [];
+		var maxSelectCount = 4;
+		$(function () {
+			$('.check').click(function () {		
+				var val = $(this).val();
+				if($(this).is(':checked')){				
+					var count = $('.check').filter(':checked').length;
+					if(count > maxSelectCount){
+						alert('최대 '+ maxSelectCount +'개 선택 가능');
+						$(this).prop('checked', false);
+					}	else{ 
+						arr.push(val);
+					}	
+				}else{
+					var index = arr.indexOf(val);
+					arr.splice(index,1);
+				}
+				draw(arr);
+			})
+		})
+		// 코드 작성 위치도 중요하다..
+		function draw(arr){
+			// css보다는 class 추가로 해주는게 좋다 -> css는 style로 남아서 안 없어짐
+			// css 적용시 removeattr('style'); 해주면 됨
+			// $('.box').text('').removeClass('select').css('border-color', 'black'); 
+			$('.text-box').text('').removeClass('bd-none').removeClass('first');
+			arr.forEach(function (v,i) {
+				$('.text-box').eq(i).text(v).addClass('bd-none');			
+			})
+			//$('.box').not('.select').eq(0).css('border-color', 'red');
+			$('.text-box').not('.bd-none').first().addClass('first');
+			
+
+		}
+	</script>
+</body>
+</html>
