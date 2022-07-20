@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>jquery : 체크 개수 제한 예제</title>
+	<script src="../js/jquery.js"></script>
+</head>
+<body>
+	<!-- <내가 푼거> -->
+	<!-- 체크박스는 최대 2개까지 선택 가능하고, 2개 초과 선택하면 alert창 뜸 -->
+	<div>취미를 선택하세요.(최대 2개)</div>
+	<input type="checkbox">농구
+	<input type="checkbox">야구
+	<input type="checkbox">영화보기
+	<input type="checkbox">축구
+	<input type="checkbox">음악감상
+
+	<script>
+		// jquery 연결 잊지 말기!! 이벤트 작성 전에 콘솔로 이벤트 되는지 확인해보기
+		$(function () {
+			$('input').click(function () {
+				//체크박스가 체크 상태면
+				if($(this).is(':checked')){
+					//현재 클릭된 체크박스 개수를 센다
+					var count = $('input').filter(':checked').length;
+					// 선택된 게 2개 초과하면
+					if(count > 2){
+						//알림창을 띄우고
+						alert('최대 2개 선택 가능');
+						//선택된 걸 해제한다
+						$(this).prop('checked', false);
+					}
+				}
+			})
+		})
+	</script>
+</body>
+</html>
