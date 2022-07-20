@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>jquery : 선택된 박스의 테두리가 사라지는 예제</title>
+	<script src="../js/jquery.js"></script>
+	<style>
+	.box{
+		width: 150px; height: 50px; border: 1px solid black;
+		line-height: 50px; margin: 10px 0; display: inline-block;
+		vertical-align: top; box-sizing: border-box;
+	}
+	.box.select{
+		border: none; width: auto;
+		/* border-color: white; */
+	}
+	</style>
+</head>
+<body>	
+	<!-- 선택하면 박스 테두리가 없어지고 너비가 글자에 맞게 줄어듬 -->
+	<div>취미를 선택하세요.(최대 4개)</div>
+	<div class="text-box">
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+	</div>
+	<input type="checkbox" value="농구">농구
+	<input type="checkbox" value="야구">야구
+	<input type="checkbox" value="영화보기">영화보기
+	<input type="checkbox" value="축구">축구
+	<input type="checkbox" value="음악감상">음악감상
+	<script>
+		var arr = [];
+		var maxSelectCount = 4;
+		$(function () {
+			$('input').click(function () {			
+				var val = $(this).val();
+				if($(this).is(':checked')){				
+					var count = $('input').filter(':checked').length;
+					if(count > maxSelectCount){
+						alert('최대 '+ maxSelectCount +'개 선택 가능');
+						$(this).prop('checked', false);
+					}	else{ 
+						arr.push(val);
+					}	
+				}else{
+					var index = arr.indexOf(val);
+					arr.splice(index,1);
+				}
+				$('.box').text('').removeClass('select');
+				/* 체이닝을 통해 위의 한줄로 가능
+				$('.box').text('');
+				$('.box').removeClass('select');
+				*/
+				// class 추가가 아니라 css로 해도 됨
+				// $('.box').css('border', '1px solid black');
+				arr.forEach(function (v,i) {
+					$('.box').eq(i).text(v).addClass('select');
+					/* 체이닝을 통해 위의 한줄로 가능
+					$('.box').eq(i).text(v);
+					$('.box').eq(i).addClass('select');
+					*/
+					// $('.box').eq(i).css('border', 'none');
+				})
+			})
+		})
+	</script>
+</body>
+</html>
