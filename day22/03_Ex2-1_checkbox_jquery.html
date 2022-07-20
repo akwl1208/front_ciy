@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>jquery : 체크한 값 출력 예제</title>
+	<script src="../js/jquery.js"></script>
+	<style>
+	.box{
+		width: 300px; height: 50px; border: 1px solid black;
+		line-height: 50px; margin: 10px 0;
+	}
+	</style>
+</head>
+<body>	
+	<!-- <내가 푼거> -->
+	<!-- 선택된 체크박스의 값이 박스에 출력됨  -->
+	<div>취미를 선택하세요.(최대 2개)</div>
+	<div class="box"></div>
+	<input type="checkbox" value="농구">농구
+	<input type="checkbox" value="야구">야구
+	<input type="checkbox" value="영화보기">영화보기
+	<input type="checkbox" value="축구">축구
+	<input type="checkbox" value="음악감상">음악감상
+	<script>
+		var arr = [];
+		var maxSelectCount = 2;
+		$(function () {
+			$('input').click(function () {			
+				var val = $(this).val();
+				if($(this).is(':checked')){					
+					var count = $('input').filter(':checked').length;
+					//arr.push(val);	
+					if(count > maxSelectCount){
+						alert('최대 '+ maxSelectCount +'개 선택 가능');
+						$(this).prop('checked', false);
+						//arr.pop(); //arr.splice(-1,1)과 같음
+					}	else{ 
+						//무조건 배열에 추가하고 2개 초과하면 마지막 값을 빼는 코드로 했는데 
+						//2개 이하이면 배열에 추가하도록 하면 됨!
+						arr.push(val);
+					}	
+				}else{
+					var index = arr.indexOf(val);
+					arr.splice(index,1);
+				}
+				$('.box').text(arr.join(', '));	
+			})
+		})
+	</script>
+</body>
+</html>
