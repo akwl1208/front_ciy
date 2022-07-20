@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>jquery : 메일 체크 예제 - 내가푼거</title>
+	<script src="../js/jquery.js"></script>
+	<style>
+		table{width: 300px; height: auto;}
+		tr>td:first-child{text-align: center;}
+	</style>
+</head>
+<body>
+	<!-- 전체 선택을 체크하면 아래에 있는 모든 메일들이 선택되고,
+			 전체선택을 해제하면 아래에 있는 모든 메일들이 체크 해제됨
+			 전체 선택되어 있을 때 하나의 메일이라도 체크 해제되면 전체 선택 체크가 해지됨
+			 모든 메일을 체크하면 전체 선택이 체크된다 -->
+	<!-- 내가 푼거 -->
+	<table border="1">
+		<tr>
+			<th><input type="checkbox" class="ckAll"></th>
+			<th>제목</th>
+			<th>보낸이</th>
+		</tr>
+		<tr>
+			<td><input type="checkbox" class="ck" value="1"></td>
+			<td>시험</td>
+			<td>홍길동</td>
+		</tr>
+		<tr>
+			<td><input type="checkbox" class="ck" value="2"></td>
+			<td>광고입니다</td>
+			<td>광고</td>
+		</tr>	
+		<tr>
+			<td><input type="checkbox" class="ck" value="3"></td>
+			<td>시험</td>
+			<td>임꺽정</td>
+		</tr>	
+	</table>
+	<script>
+		$(function () {
+			// 전체 선택('.ckAll')을 클릭하면'.ck'를 가진 요소들을 전체 선택 또는 해지하는 이벤트
+			$('.ckAll').click(function () {
+				if($(this).prop('checked') == true){
+					$('.ck').prop('checked',true);
+				}else{
+					$('.ck').prop('checked',false);
+				}
+			})
+			$('.ck').click(function () {
+				// 전체 선택일 때, '.ck'에서 하나라도 선택이 해지되면 전체선택('.ckAll') 체크가 없어지는 이벤트
+				if($(this).prop('checked') == false){
+					$('.ckAll').prop('checked',false);
+				}
+				// '.ck'를 가진 요소들이 모두 선택되면 전체선택('.ckAll')이 체크되는 이벤트
+				var count = $('.ck').filter(':checked').length;
+				var total = $('.ck').length; 
+				/* 위의 한 줄로 줄일 수 있음 
+ 				var count = 0;
+				$('.ck').each(function () {
+					if($(this).is(':checked')==true){
+						count++;
+					};
+				})*/
+				if(count == total){
+					$('.ckAll').prop('checked',true);
+					count == 0;
+				}
+			})	
+		})
+	</script>
+</body>
+</html>
