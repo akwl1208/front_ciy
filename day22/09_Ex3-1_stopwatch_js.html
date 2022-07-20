@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>js : 스탑워치 예제-기록 저장 </title>
+	<script src="../js/jquery.js"></script>
+	<style>
+	.view{
+		width: 300px; height: 50px; border: 2px solid black;
+		margin: 10px auto;
+		text-align: center; line-height: 46px; font-size: 30px;
+		letter-spacing: 1px; box-sizing: border-box;
+	}
+	.box-btn{
+		width: 300px; margin: 0 auto;
+	}
+	.box-btn::after{clear: both; display: block; content: '';}
+	.btn{
+		float: left; width: 50%;
+	}
+	.btn:nth-child(2n){float: right;}
+	.box-record{
+		box-sizing: border-box; width: 300px; height: 100px;
+		border: 2px solid black;
+		padding: 10px 0; margin: 0 auto; 
+		min-height: 74px; text-align: center; line-height: 50px;
+	}
+	</style>
+</head>
+<body>
+	<!-- lab 버튼을 누르면 시간이 누적기록됨 -->
+	<div class="view">00:00.00</div>
+	<div class="box-btn">
+		<button class="btn btn-start">시작</button>
+		<button class="btn btn-stop">중지</button><br>
+		<button class="btn btn-lab">랩</button>
+	</div>
+	<div class="box-record"></div>
+	<script>
+		$(function () {
+			var ms = 0, s = 0, m = 0; //밀리초, 초, 분
+			var id = null;
+			$('.btn-start').click(function(){
+				if(id == null){
+					id = setInterval(() => { 
+						ms += 10;
+						if(ms == 1000){
+							ms=0; s++;
+						}
+						if(s == 60){
+							s=0; min++;	
+						}
+						$('.view').text(getStr(m,s,ms));
+					}, 10);
+				}		
+			})
+			$('.btn-stop').click(function(){
+				if(id != null){
+					clearInterval(id);
+					id=null;
+				}	
+			})
+			/* <내가 푼거> html -> prepend
+			$('.btn-lab').click(function(){
+				// var html = $('.box').html();
+				// $('.box').html(getStr(m,s,ms) + '<br>' + html + '<br>');
+				$('.box-record').prepend(getStr(m,s,ms)+'<br>');
+			})*/
+
+			//<선생님 풀이> 
+			// div 태그 생각 못함
+			$('.btn-lab').click(function(){
+				if(id != null){
+					// getStr(m,s,ms)는 $('.view').text()로 작성 가능
+					var str = 
+					'<div class="lab">' +
+						getStr(m,s,ms) +
+					'</div>';
+					$('.box-record').prepend(str);
+				}
+			})
+		})
+		function getStr(m,s,ms){
+			return fillZero(m) + ':' + fillZero(s) + "." + fillZero(ms/10);
+		}
+		function fillZero(num){
+			return num < 10? '0'+num : ''+num;
+		}
+	</script>
+</body>
+</html>
