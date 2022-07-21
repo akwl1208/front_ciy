@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>jquery: 롤링 예제-내가 푼거1</title>
+	<script src="../js/jquery.js"></script>
+	<style>
+		*{padding: 0; margin: 0;}
+		.view{
+			width: 300px; height: 50px; border: 2px solid black;
+			overflow: hidden; 
+			margin: 50px; position: relative;
+		}
+		ul{list-style: none;}
+		.list1{width: 1500px;}
+		.list::after{clear: both; content: ''; display: block;}
+		.item{
+			float: left; width: 300px; height: 50px;
+			line-height: 50px; background-color: lightblue;
+		}
+	</style>
+</head>
+<body>
+	왼쪽
+	<div class="view" data-target=".item1">
+		<ul class="list list1">
+			<li class="item item1">1</li>
+			<li class="item item1">2</li>
+			<li class="item item1">3</li>
+			<li class="item item1">4</li>
+		</ul>
+	</div>
+	위로:4개
+	<div class="view" data-target=".item2">
+		<ul class="list">
+			<li class="item item2">1</li>
+			<li class="item item2">2</li>
+			<li class="item item2">3</li>
+			<li class="item item2">4</li>
+		</ul>
+	</div>
+	위로:5개
+	<div class="view" data-target=".item3">
+		<ul class="list">
+			<li class="item item3">1</li>
+			<li class="item item3">2</li>
+			<li class="item item3">3</li>
+			<li class="item item3">4</li>
+			<li class="item item3">5</li>
+		</ul>
+	</div>
+	<script>
+		$(function () {
+			const itemWidth = -$('.item').first().width() + 'px';
+			const itemHeight = -$('.item').first().height() + 'px';
+			setInterval(() => {
+				let view1 = $('.view').eq(0);
+				let target1 = view1.data('target');
+				let view2 = $('.view').eq(1);
+				let target2 = view2.data('target');
+				let view3 = $('.view').eq(2);
+				let target3 = view3.data('target');
+
+				if(view1.children().first().is(':animated') || view1.is(':hover'))
+					return;	
+				toLeft(itemWidth,target1);
+				if(view2.children().first().is(':animated') || view2.is(':hover'))
+					return;	
+				toUp(itemHeight, target2);
+				if(view3.children().first().is(':animated') || view3.is(':hover'))
+					return;	
+				toUp(itemHeight, target3);
+			}, 1500);
+
+			function toLeft(width,target) {
+				$(target).first().animate(
+					{
+						'margin-left' : width
+					},
+					1200,
+					function(){
+						$(this).detach()
+									.removeAttr('style')
+									.appendTo('.list');
+					}
+				)					
+			}
+			function toUp(height, target) {
+				$(target).first().animate(
+						{
+							'margin-top' : height
+						},
+						1200,
+						function(){
+							$(this).detach()
+										.removeAttr('style')
+										.appendTo('.list');
+						}
+					)				
+			}
+		})
+	</script>
+</body>
+</html>
