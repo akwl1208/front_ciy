@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>jquery : 좌롤링 예제 - 마우스 호버 페이지 정지</title>
+	<script src="../js/jquery.js"></script>
+	<style>
+		*{padding: 0; margin: 0;}
+		.view, .view2{
+			width: 300px; height: 50px; border: 2px solid black;
+			overflow: hidden; margin: 20px;
+		}
+		ul{list-style: none;}
+		.list, .list2{width: 1500px;}
+		.list::after{clear: both; content: ''; display: block;}
+		.item, .item2{
+			float: left; width: 300px; height: 50px;
+			line-height: 50px; background-color: yellow;
+		}
+		.item:nth-child(2n),.item2:nth-child(2n){background-color: skyblue;}
+	</style>
+</head>
+<body>
+	<!-- 마우스 호버하면 멈추고 호버를 떼면 다시 이동하는 코드 -->
+	내가 푼거
+	<div class="view">
+		<ul class="list">
+			<li class="item">1</li>
+			<li class="item">2</li>
+			<li class="item">3</li>
+			<li class="item">4</li>
+			<li class="item">5</li>
+		</ul>
+	</div>
+	선생님풀이
+	<div class="view2">
+		<ul class="list2">
+			<li class="item2">1</li>
+			<li class="item2">2</li>
+			<li class="item2">3</li>
+			<li class="item2">4</li>
+			<li class="item2">5</li>
+		</ul>
+	</div>
+
+	<script>
+		// 내가 푼거
+		let id;
+		$(function () {
+			id = startrolling();
+			$('.view').hover(function () {
+			clearInterval(id);
+			},function () {
+			id = startrolling();
+		})
+		function startrolling(){
+			let id = setInterval(() => {
+				let width = $('.item').first().width();
+				let maxCount = $('.item').length;
+				let ml = $('.list').css('margin-left');
+				let maxMl = -width * (maxCount-1) + 'px';
+				if(!$('.list').is(':animated') && ml != maxMl)
+					$('.list').animate({'margin-left' : '-='+width+'px'},1000);								
+			}, 1000);
+			return id;
+		}
+
+		// 선생님 풀이 : is
+		setInterval(() => {
+			let width = $('.item2').first().width();
+			let ml = $('.list2').css('margin-left');
+			let maxMl = -$('.list2').width() + width + 'px'
+			if(!$('.list2').is(':animated') && ml != maxMl && !$('.view2').is(':hover'))
+				$('.list2').animate({'margin-left' : '-='+width+'px'},1500);								
+		}, 2000);
+		})
+	</script>
+</body>
+</html>
