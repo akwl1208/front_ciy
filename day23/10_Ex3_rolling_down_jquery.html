@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>jquery : 아래롤링 예제 - detach</title>
+	<script src="../js/jquery.js"></script>
+	<style>
+		*{padding: 0; margin: 0;}
+		.view, .view2{
+			width: 300px; height: 50px; border: 2px solid black;
+			overflow: hidden; margin: 150px;
+		}
+		ul{list-style: none;}
+		.list::after, .list2::after{clear: both; content: ''; display: block;}
+		.item, .item2{
+			float: left; width: 300px; height: 50px;
+			line-height: 50px; background-color: yellow;
+		}
+		.item:nth-child(2n),.item2:nth-child(2n){background-color: skyblue;}
+	</style>
+</head>
+<body>
+	<!-- 아래로 롤링 -->
+	<!-- 내가 푼거 -->
+	<div class="view">
+		<ul class="list">
+			<li class="item">1</li>
+			<li class="item">2</li>
+			<li class="item">3</li>
+			<li class="item">4</li>
+			<li class="item">5</li>
+		</ul>
+	</div>
+	<script>
+		$(function () {
+			setInterval(() => {
+				let height = -$('.item').first().height() + 'px';
+				if($('.item').first().is(':animated') || $('.view').is(':hover'))
+					return;
+				$('.item').last()
+						.detach()
+						.prependTo('.list')
+						.css('margin-top',height)
+						.animate({
+							'margin-top' : '0px'
+							},
+							1200
+						);
+			}, 1500);		
+
+		})
+	</script>
+</body>
+</html>
