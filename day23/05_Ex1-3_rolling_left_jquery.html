@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>jquery : 좌롤링 예제 - 마지막 페이에서 다음으로 넘어가면 다시 처음으로</title>
+	<script src="../js/jquery.js"></script>
+	<style>
+		*{padding: 0; margin: 0;}
+		.view, .view2{
+			width: 300px; height: 50px; border: 2px solid black;
+			overflow: hidden; margin: 20px;
+		}
+		ul{list-style: none;}
+		.list, .list2{width: 1500px;}
+		.list::after{clear: both; content: ''; display: block;}
+		.item, .item2{
+			float: left; width: 300px; height: 50px;
+			line-height: 50px; background-color: yellow;
+		}
+		.item:nth-child(2n),.item2:nth-child(2n){background-color: skyblue;}
+	</style>
+</head>
+<body>
+	<!-- 마지막 페이지에서 다음으로 넘어가면 다시 처음으로 가는 코드 -->
+	내가 푼거
+	<div class="view">
+		<ul class="list">
+			<li class="item">1</li>
+			<li class="item">2</li>
+			<li class="item">3</li>
+			<li class="item">4</li>
+			<li class="item">5</li>
+		</ul>
+	</div>
+
+	선생님풀이
+	<div class="view2">
+		<ul class="list2">
+			<li class="item2">1</li>
+			<li class="item2">2</li>
+			<li class="item2">3</li>
+			<li class="item2">4</li>
+			<li class="item2">5</li>
+		</ul>
+	</div>
+
+	<script>
+		$(function () {
+			// 내가 푼거
+			let id=startrolling();
+			$('.view').hover(function () {
+				clearInterval(id);
+				},function () {
+				id = startrolling();
+			})
+			function startrolling(){
+				let id = setInterval(() => {
+					let width = $('.item').first().width();
+					let ml = $('.list').css('margin-left');
+					let maxMl = -$('.list').width() + width + 'px'
+					if(!$('.list').is(':animated') && ml != maxMl)
+						$('.list').animate({'margin-left' : '-='+width+'px'},1000);								
+					if(ml == maxMl){
+						$('.list').animate({'margin-left': '0px'})
+					}
+				}, 1000);
+				return id;
+			}
+
+			// 선생님 풀이
+			let id2=startrolling2();
+			var page = 1;
+			$('.view2').hover(function () {
+				clearInterval(id2);
+				},function () {
+				id2 = startrolling2();
+			})
+			function startrolling2(){
+				let id = setInterval(() => {
+					let width = $('.item2').first().width();
+					let count = $('.item2').length;
+					page = ++page > count? 1 : page;
+					let ml = -width *(page-1);
+					if(!$('.list2').is(':animated'))
+						$('.list2').animate({'margin-left' : ml +'px'},900);								
+				}, 1000);
+				return id;
+			}
+
+		})
+	</script>
+</body>
+</html>
