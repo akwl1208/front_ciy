@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>jquery : 오른쪽롤링 예제 - detach</title>
+	<script src="../js/jquery.js"></script>
+	<style>
+		*{padding: 0; margin: 0;}
+		.view, .view2{
+			width: 300px; height: 50px; border: 2px solid black;
+			overflow: hidden; margin: 20px;
+		}
+		ul{list-style: none;}
+		.list, .list2{width: 1500px;}
+		.list::after{clear: both; content: ''; display: block;}
+		.item, .item2{
+			float: left; width: 300px; height: 50px;
+			line-height: 50px; background-color: yellow;
+		}
+		.item:nth-child(2n),.item2:nth-child(2n){background-color: skyblue;}
+	</style>
+</head>
+<body>
+	<!-- 오른쪽 롤링 -->
+	<div class="view">
+		<ul class="list">
+			<li class="item">1</li>
+			<li class="item">2</li>
+			<li class="item">3</li>
+			<li class="item">4</li>
+			<li class="item">5</li>
+		</ul>
+	</div>
+	
+	<script>
+		$(function () {
+			setInterval(() => {
+				let width = -$('.item').first().width() + 'px';
+				if($('.item').first().is(':animated') || $('.view').is(':hover'))
+					return;
+				$('.item')
+					.last()
+					.detach()
+					.css('margin-left',width)
+					.prependTo('.list')
+					.animate({
+						'margin-left' : '0px'
+						},
+						1200
+					);
+			}, 1500);
+		})
+	</script>
+</body>
+</html>
