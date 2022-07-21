@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>jquery : 좌롤링 예제 - 마지막 페이지 정지</title>
+	<script src="../js/jquery.js"></script>
+	<style>
+		*{padding: 0; margin: 0;}
+		.view{
+			width: 300px; height: 50px; border: 2px solid black;
+			overflow: hidden; margin: 20px;
+		}
+		ul{list-style: none;}
+		.list{width: 1500px;}
+		.list::after{clear: both; content: ''; display: block;}
+		.item{
+			float: left; width: 300px; height: 50px;
+			line-height: 50px; background-color: yellow;
+		}
+		.item:nth-child(2n){background-color: skyblue;}
+	</style>
+</head>
+<body>
+	<!-- 마지막 페이지에서 멈추는 코드 -->
+	내가 푼거
+	<div class="view">
+		<ul class="list">
+			<li class="item">1</li>
+			<li class="item">2</li>
+			<li class="item">3</li>
+			<li class="item">4</li>
+			<li class="item">5</li>
+		</ul>
+	</div>
+	선생님풀이
+	<div class="view">
+		<ul class="list list1">
+			<li class="item item1">1</li>
+			<li class="item item1">2</li>
+			<li class="item item1">3</li>
+			<li class="item item1">4</li>
+			<li class="item item1">5</li>
+		</ul>
+	</div>
+	<script>
+		$(function () {
+			// 내가 푼거
+			let num = 1;
+			let id = setInterval(() => {
+				num++;
+				let width = $('.item').first().width();
+				if(!$('.list').is(':animated'))
+					$('.list').animate({'margin-left' : '-='+width+'px'},900);								
+				if(num == 5){
+					clearInterval(id);
+				}
+			}, 1000);
+
+			// 선생님 풀이
+			setInterval(() => {
+				// 박스 한 칸의 너비
+				let width = $('.item1').first().width();
+				// 박스 개수
+				let maxCount = $('.item1').length;
+				// 리스트의 margin-left 값
+				let ml = $('.list1').css('margin-left');
+				// 리스트가 최대로 갈 수 있는 값
+				let maxMl = -width * (maxCount-1) + 'px';
+				if(!$('.list1').is(':animated') && ml != maxMl)
+					$('.list1').animate({'margin-left' : '-='+width+'px'},900);								
+			}, 1000);
+		})
+	</script>
+</body>
+</html>
