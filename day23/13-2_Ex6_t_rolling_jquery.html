@@ -92,7 +92,15 @@
 					}
 				)			
 			}
-
+			/** 함수 만들었을 때 해당 함수에 매개변수 타입을 지정할 때
+			 * 위로 rolling
+			 * 
+			 * @param {string} parentSelector 부모선택자
+			 * @param {string} childSelector 자식 선택자
+			 * @param {number} animateTime 애니메이션 실행시간
+			 * @return {void} 없음
+			 * */
+		
 			function toUp(parentSelector,childSelector, animateTime){
 				let height = -$(childSelector).first().height() + 'px';
 				$(childSelector).first().animate(
@@ -108,6 +116,7 @@
 					)	
 			}
 		})
+	
 	</script>
 </body>
 </html>
