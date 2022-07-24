@@ -200,7 +200,7 @@ a{ text-decoration: none; }
 	vertical-align: 2px; display: inline-block;
 	content: ''; background-position: -444px -339px;
 }
-.menu-con .btn-more:hover{
+.menu-con .btn-more .title:hover{
 	text-decoration: underline;
 }
 .menu-con .btn-more.fold{
@@ -225,10 +225,9 @@ a{ text-decoration: none; }
 /* 서비스 전체보기 버튼 */
 .menu-con .btn-area{
 	position: absolute; top: 0; right: 30px;
-	/* display: none; */
+	display: none; z-index: 10;
 	width: 270px; padding: 11px 0;
 	background-color: #fff; text-align: right;
-	/* z-index: 10; */
 }
 .menu-con .btn-area .btn{
 	display: inline-block;
@@ -243,20 +242,50 @@ a{ text-decoration: none; }
 	vertical-align: top; content: '';
   margin: 2px 5px 0 0;
 }
+.menu-con .btn-area.fold{
+	display: inline-block;
+}
+.menu-con .btn-area .btn:hover{
+	text-decoration: underline;
+}
+
 
 /* 서비스 박스 */
 .menu-con .service-con{
 	position: absolute; top: 52px; right: 0; left: 0;
-	/* display: none; */
-  padding: 20px 30px 22px; z-index: 1;
+	display: none;
+  padding: 20px 30px 22px; z-index: 2;
   background-color: #fff; box-shadow: 0 4px 4px 0 rgb(0 0 0 / 12%);
   border-top: 1px solid #e4e8eb; 
 }
 .menu-con .service-con .box-service{
-	/* overflow: hidden; */
+	overflow: hidden;
 	display: table; width: 1128px; table-layout: fixed;
 	margin: 0 auto;
 	border: 1px solid #e4e8eb; border-width: 0 1px;
+}
+.menu-con .service-con .box-service .list-service{
+	display: table-cell; padding: 0 14px 0 15px;
+  font-size: 13px; line-height: 26px; letter-spacing: -.25px;
+}
+.menu-con .service-con .box-service .title-service{
+	margin-bottom: 3px;
+  color: #000; font-weight: 700;
+}
+.menu-con .service-con .box-service .data-service{
+	overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.menu-con .service-con .box-service .link-service{
+	color: inherit;
+}
+.menu-con .service-con .box-service .list-service+.list-service{
+	border-left: 1px solid #e4e8eb;
+}
+.menu-con .service-con .link-service:hover{
+	text-decoration: underline;
+}
+.menu-con .service-con.fold{
+	display: block;
 }
 
 /* 컨텐츠 박스 */
