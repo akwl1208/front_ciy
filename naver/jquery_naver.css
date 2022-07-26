@@ -676,7 +676,18 @@ a{ text-decoration: none; }
 .content-con .box-left4 .btn-next:hover{
 	background-position: -170px -345px;
 }
-
+/* box-theme-con */
+.content-con .box-left4 .box-theme-con{
+	padding-top: 4px;
+}
+.content-con .box-left4 .box-theme-con .box{
+ 	display: none; background-color: red;
+	height: 300px; padding: 18px 0;
+	color: white; font-size: 30px;  
+}
+.content-con .box-left4 .box-theme-con .box.select{
+	display: block;
+}
 
 /* 오른쪽 1번째 박스(로그인) */
 .content-con .box-right1{
