@@ -17,6 +17,8 @@ $(function () {
 			$(boxThemeBody+'.btn-prev').show();
 			$(boxThemeBody+'.btn-next').show();
 		}
+		$('.content-con .box-left4 .box-theme-con .box').removeClass('select');
+		$('.content-con .box-left4 .box-theme-con .box').eq($(this).index()).addClass('select');
 	})
 	// btn-prev를 클릭하면 active 클래스가 있는 이전 btn-theme가 선택되는 이벤트
 	$(boxThemeBody+'.btn-prev').click(function (e) {
