@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>예제 : 정규표현식</title>
+	<script src="../js/jquery.js"></script>
+</head>
+<body>
+	<!-- 
+		아이디 입력창을 만들고, 아이디를 입력 받은 후 아이디 검사 버튼을 클릭
+		입력한 아이디가 아이디 정규표현식에 맞는지 알림창으로 띄우는 코드 작성
+		아이디는 영문자와 숫자만 가능하고, 5~13자리
+	 -->
+	아이디 : <input type="text" name="id" id="id">
+	<button class="btn1" onclick="checkId()">아이디 검사(js)</button>
+	<button class="btn2">아이디 검사(jquery)</button>
+	<script>
+		// /^[a-zA-Z0-9]{5,13}$/g -> 조건식이 이상함
+		let idRegex = /^[a-zA-Z0-9]{5,13}$/; //^\w{5,13}$\
+		// jquery
+		$(function() {
+			$('.btn2').click(function(){
+				let id = $('#id').val();
+				if(idRegex.test(id))	
+					alert('사용 가능한 아이디입니다');
+				else
+					alert('잘못된 아이디 입니다');	
+			})	
+		})
+		function checkId(){
+			// 입력한 아이디 값 가져오기
+			let id = document.getElementById('id').value;
+			// 정규표현식에 일치하는지 확인
+			if(idRegex.test(id))
+				alert('유효한 아이디입니다');
+			else
+				alert('영문자와 숫자만 가능하고, 5~13자리로 입력해주세요');		
+		}
+	</script>
+</body>
+</html>
