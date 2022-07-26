@@ -10,12 +10,16 @@ $(function () {
 		$(boxMenu+'.btn-area').toggle();
 		$('.menu-con .service-con').toggle();
 	})
+	// 설정 버튼을 투르면
 	$(boxMenu+'.btn-set').click(function(e){
 		e.preventDefault();
+		// 초기화 저장 버튼 보여주고
 		$(boxMenu+'.box-btn1').hide();
 		$(boxMenu+'.box-btn2').show();
+		// 검은색 메뉴 사라지고 빈 박스 메뉴가 보여지고
 		$(boxMenu+'.list-menu.favorite').hide();
 		$(boxMenu+'.list-menu.empty').show();
+		// 서비스 박스도 체크박스로 바뀐다
 		$('.menu-con .service-con .box-service').addClass('display-none');
 		$('.menu-con .service-con .box-service.check').removeClass('display-none');
 	})
