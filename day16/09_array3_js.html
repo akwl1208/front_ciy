@@ -31,11 +31,13 @@
 			시작번지부터 추가할 요소들을 추가
 			- 제거한 요소들을 반환
 		*/
-		//arr1.splice(2); //2번지부터 끝까지 제거
-		arr1.splice(2,1); //2번지부터 1개 제거
-		console.log(arr1);
-		arr1.splice(2, 1, true, false);
-		console.log(arr1);
+		let arr2 = [0,1,2,3,4];
+		arr2.splice(3); //3번지부터 끝까지 제거
+		console.log(arr2);
+		arr2.splice(2,1); //2번지부터 1개 제거
+		console.log(arr2);
+		arr2.splice(1, 1, true, false);
+		console.log(arr2);
 
 		/*
 			처음 추가/삭제 : unshift, shift
