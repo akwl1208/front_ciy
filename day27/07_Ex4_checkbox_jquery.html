@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>체크박스 예제</title>
+	<script src="../js/jquery.js"></script>
+	<style>
+		.box{
+			width: 300px; height: 50px;
+			border: 1px solid black;
+			line-height: 50px; font-size: 20px;
+			padding: 0 10px;
+		}
+	</style>
+</head>
+<body>
+	<!-- 선택하면 선택한 값이 빈 박스에 입력되는 코드 -->
+	<!-- 내가 푼거 -->
+	<div class="box"></div>
+	<input type="checkbox" class="fruit" name="fruit" id="banana" value="바나나"><label for="banana">바나나</label>
+	<input type="checkbox" class="fruit" name="fruit" id="apple" value="사과"><label for="apple">사과</label>
+	<input type="checkbox" class="fruit" name="fruit" id="orange" value="오렌지"><label for="orange">오렌지</label>
+	<script>
+		$(function () {
+			let arr = [];
+			$('.fruit').click(function () {
+				let fruit = $(this).val();
+				if($(this).is(':checked')){
+					arr.push(fruit);
+				}else{
+					let index = arr.indexOf(fruit);
+					arr.splice(index,1);
+				}
+				$('.box').text(arr.join(', '));
+
+				/*
+				if($(this).is(':checked')){
+					// 형제들의 체크 해제
+					$(this).siblings('.fruit').prop('checked',false);
+				}else{
+					// $('.box').text('');
+					$('.box').empty();
+				}
+				*/
+			})
+		})
+	</script>
+</body>
+</html>
