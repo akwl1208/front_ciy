@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>javascript : review</title>
+</head>
+<body>
+	<input type="text">
+	<script>
+		// 동기화 코드 : 앞의 작업이 다 끝나야 다음 작업으로 넘어감 -> 순차적으로 실행
+		// 객체
+		history.back();
+		window.alert('안녕');
+		let inputs = document.getElementsByTagName('input');
+		console.log(inputs[0].value); //배열 형태로 가져오기 때문에
+		console.log(inputs.value); //잘못 작성
+		// 값 설정 및 속성 설정
+		inputs[0].value = 1;
+		inputs[0].style.color = 'red';
+		inputs[0].style.backgroundColor = 'yellow';
+		
+	</script>
+</body>
+</html>
