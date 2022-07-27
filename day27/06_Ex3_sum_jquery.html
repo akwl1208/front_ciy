@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>sum 예제</title>
+	<script src="../js/jquery.js"></script>
+	<style>
+		input, span{vertical-align: top; font-size: 12px;}
+		.box{
+			border: 1px solid rgba(0, 0, 0, 0.5);
+			display: inline-block; width: 146px; height: 16px;
+			padding: 1px 2px;
+		}
+		.btn{margin-top: 10px;}
+	</style>
+</head>
+<body>
+	<!-- 숫자 2개를 입력받아 버튼을 누르면 합계를 반환하는 예제 -->
+	<!-- 내가 푼거 -->
+	<input type="text" id="num1">
+	<span> + </span>
+	<input type="text" id="num2">
+	<span> = </span>
+	<span class="box">span</span>
+	<input type="text" class="result" placeholder="input" readonly> 
+	<br> 
+	<button class="btn">확인</button>
+	<script>
+		$(function () {
+			$('.btn').click(function () {
+				let x = parseInt(document.getElementById('num1').value); // js
+				let y = parseInt($('#num2').val()); //jquery
+				let sum = x + y;
+
+				$('.box').text(sum);
+				$('.result').val(sum);
+			})
+		})
+	</script>
+</body>
+</html>
