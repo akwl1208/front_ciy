@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>메일 삭제 예제</title>
+	<script src="../js/jquery.js"></script>
+</head>
+<body>
+	<!-- 선택한 메일을 삭제버튼을 누르면 삭제되는 코드 -->
+	<!-- 내가 푼거 -->
+	<button class="delete">삭제</button>
+	<table border="1">
+		<tr>
+			<th style="width: 10%;"><input type="checkbox" class="ckAll"></th>
+			<th style="width: 70%;">제목</th>
+			<th style="width: 20%;">보낸이</th>
+		</tr>
+		<tr class="check">
+			<td><input type="checkbox" class="ck" value="1"></td>
+			<td>안녕하세요</td>
+			<td>홍길동</td>
+		</tr>
+		<tr>
+			<td><input type="checkbox" class="ck" value="2"></td>
+			<td>싸다싸~</td>
+			<td>광고</td>
+		</tr>	
+		<tr>
+			<td><input type="checkbox" class="ck" value="3"></td>
+			<td>결제 확인</td>
+			<td>마켓</td>
+		</tr>	
+	</table>
+	<script>
+		$(function () {
+			$('.ckAll').click(function () {
+				let isCheckAll = $(this).prop('checked');
+				$('.ck').prop('checked', isCheckAll);
+			})
+			$('.ck').click(function () {
+				if($(this).is(':checked')){
+					var count = $('.ck').filter(':checked').length;
+					var totalcount = $('.ck').length;
+					if(totalcount == count){
+						$('.ckAll').prop('checked', true);
+					}
+				}else{
+					$('.ckAll').prop('checked', false);
+				}	
+			})
+			$('.delete').click(function () {
+				$('.ck').each(function () {
+					if($(this).is(':checked')){
+						$(this).parents('tr').remove();
+					}
+				})
+			})
+		})
+	</script>
+</body>
+</html>
