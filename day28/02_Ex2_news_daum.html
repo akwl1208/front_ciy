@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>다음 뉴스 따라하기</title>
+	<script src="../js/jquery.js"></script>
+	<style>
+		/* 내가 푼거 */
+		.link-news{
+			width: 36px; float: left;
+			line-height: 36px; text-align: center;
+			font-weight: bold; color:rgb(34, 34, 34); text-decoration: none;
+		}
+		.box-dot{
+			float: left; line-height: 36px;
+		}
+		.dot{
+			display: inline-block; width: 7px; height: 7px; 
+			background-color: lightgray; border-radius: 50%;
+		}
+		.on{
+			background-color: gray;
+		}
+		.box-dot::after{clear: both; display: block; content: '';}
+		/* 선생님 풀이 */
+		.link{
+			color: black; text-decoration: none;
+			vertical-align: top;
+		}
+		.link:hover .title{
+			text-decoration: underline;
+		}
+		.box-dot2{
+			display: inline-block;
+		}
+		.dot2{
+			width: 4px;	height: 4px; border-radius: 2px; background-color: gray; 
+			display: inline-block; vertical-align: top;
+			margin-top: 8px; margin-left: 3px;
+		}
+		.dot2+.dot2{
+			margin-right: 3px;
+		}
+		.dot2.sel{background-color: red;}
+	</style>
+</head>
+<body>
+	<!-- 내가 푼거 -->
+	<a href="http://www.daum.net" class="link-news">뉴스</a>
+	<div class="box-dot">
+		<span class="dot on"></span>
+		<span class="dot"></span>
+	</div>
+	<br><br>
+	<!-- 선생님 풀이 -->
+	<a href="http://news.daum.net" class="link">
+		<span class="title">뉴스</span>
+		<span class="box-dot2">
+			<span class="dot2 sel"></span>
+			<span class="dot2"></span>	
+		</span>
+		</a>
+
+	<script>
+		// <내가 푼거>
+		$(function () {
+			$('.dot').click(function () {
+				$('.dot').toggleClass('on');
+			})
+			$('.link-news').click(function (e) {
+				if($('.dot').eq(1).hasClass('on')){
+					e.preventDefault();
+					$('.dot').toggleClass('on');
+				}			
+			})
+		})
+		// <선생님 풀이>
+		$(function () {
+			$('.title').click(function (e) {
+				let index = $('.dot').filter('.sel').index();
+				if(index == 0)
+					e.stopPropagation();
+				else	
+					$('.box-dot2').click();
+			})
+			$('.box-dot2').click(function () {
+				$('.dot.sel').removeClass('sel').siblings().addClass('sel');
+			})	
+			$('.link').click(function (e) {
+				e.preventDefault();
+			})
+		})
+	</script>
+</body>
+</html>
