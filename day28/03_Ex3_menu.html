@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>메뉴 예제</title>
+	<script src="../js/jquery.js"></script>
+	<style>
+		*{padding: 0; margin: 0;}
+		ul{list-style: none}
+		a{text-decoration: none; color: black;}
+		.item-menu{
+			width: calc((100% - 4px)/3); height: 100px; float: left;
+			border: 1px solid black;
+			text-align: center; line-height: 100px;
+			font-size: 16px; font-weight: bold;
+		}
+		.item-menu+.item-menu{
+			margin-left: -1px;
+		}
+		.submenu{
+			width: 100%; height: 300px; margin-left: -1px; 
+			display: none; background-color: yellow;
+		}
+		.submenu+.submenu{
+			margin-left: -1px;
+		}
+	</style>
+</head>
+<body>
+	<!-- 메뉴를 호버하면 서브메뉴가 슬라이드하면서 내려오는 코드 -->
+	<!-- 내가푼거 -->
+	<ul class="list-menu">
+		<li class="item-menu">
+			<a href="#">메뉴1</a>
+			<ul class="submenu">
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+			</ul>
+		</li>
+		<li class="item-menu">
+			<a href="#">메뉴2</a>
+			<ul class="submenu">
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+			</ul>
+		</li>
+		<li class="item-menu">
+			<a href="#">메뉴3</a>
+			<ul class="submenu">
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+			</ul>
+		</li>
+	</ul>
+	<script>
+		$(function () {
+			$('.item-menu').hover(function () {
+				let index = $(this).index();
+				$('.submenu').eq(index).stop().slideDown(2000);
+			},function () {
+				let index = $(this).index();
+				$('.submenu').eq(index).stop().slideUp(2000);
+			})
+		})
+	</script>
+</body>
+</html>
