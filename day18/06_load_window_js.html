@@ -4,25 +4,25 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>js : window - load</title>
+	<title>js : window - onload</title>
 	<script>
 		// 실행 당시 btn이 없어서 이벤트 실행 못함 -> 오류
 		// 이를 해결하기 위해 onload 사용
 		var btn; //지역변수를 전역변수로 만들기 위해
 		
 		window.onload = () =>{
-		var link = document.getElementsByTagName('a')[0];
-		link.innerText = '링크';
+			var link = document.getElementsByTagName('a')[0];
+			link.innerText = '링크';
 		}
-		// window.onload는 여러 개일 수 있지만, 실행은 마지막 하나만 실행됨
+		//window.onload는 여러 개일 수 있지만, 실행은 마지막 하나만 실행됨
 		window.onload = () =>{
-		btn = document.getElementsByTagName('button')[0];
-		btn.onclick = () => console.log('클릭');
+			btn = document.getElementsByTagName('button')[0];
+			btn.onclick = () => console.log('클릭');
 		}
 	</script>
 </head>
 <body>
 	<button>버튼</button>
-	<a href="">링크</a>
+	<a href="#"></a>
 </body>
 </html>
