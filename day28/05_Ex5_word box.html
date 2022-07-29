@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>단어 박스 생성/삭제 예제</title>
+	<script src="../js/jquery.js"></script>
+	<style>
+		.box-input{
+			margin-bottom: 10px;
+		}
+		.word{
+			width: 200px; height: 30px; display: inline-block;
+			border: 1px solid black; margin-right: 10px;
+			line-height: 30px; padding-left: 10px;
+		}
+		.btn-close{
+			width: 30px; height: 30px;
+			float: right; line-height: 30px; text-align: center;
+			background-color: lightgray; cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<!-- 단어를 입력하고 추가 버튼을 누르면 단어가 적힌 박스가 추가되는 코드
+			생성된 단어 박스에 있는 X를 누르면 단어 박스가 사라지는 코드 -->
+	<!-- 내가 푼거 -->
+	<div class="box-input">
+		<input type="text" class="text">
+		<button class="btn-add">추가</button>
+	</div>
+	<div class="box">
+	</div>
+	<script>
+		$(function () {
+			$('.btn-add').click(function () {
+				let word = $('.text').val();
+				let html = 
+				`<div class="word">
+					<span>${word}</span>
+					<div class="btn-close">X</div>
+				</div>`
+				$('.box').html($('.box').html() + html);
+			})
+			$(document).on('click', '.btn-close', function(){
+				$(this).parent('.word').remove();
+			})
+		})
+	</script>
+</body>
+</html>
