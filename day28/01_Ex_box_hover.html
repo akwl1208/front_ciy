@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>box hover 예제</title>
+	<script src="../js/jquery.js"></script>
+	<style>
+		.box{
+			width: 200px; height: 200px;
+			background-color: white;
+		}
+		.box1:hover{
+			background-color: yellow;
+		}
+		.bg-orange{
+			background-color: orange;
+		}
+	</style>
+</head>
+<body>
+	<!-- 박스를 호버하면 배경색이 바뀌는 예제 -->
+	<!-- 내가 푼거 -->
+	<div class="box box1">style</div>
+	<div class="box box2">css</div>
+	<div class="box box3">toggleClass</div>
+	<script>
+		$('.box2').hover(function () {
+			$(this).css('background', 'green');
+		},function () {
+			$(this).css('background', 'white');
+		})
+		$('.box3').hover(function () {
+			$(this).toggleClass('bg-orange');
+		})
+	</script>
+</body>
+</html>
