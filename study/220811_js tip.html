@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>자바스크립트 작성 tip</title>
+</head>
+<body>
+	<script>
+		// nullish coalescing
+		console.log('---------------nullish coalescing')
+		let str1 = 'hello';
+		console.log(str1 ?? 'null 또는 undefined'); //hello
+		let str2 = null;
+		console.log(str2 ?? 'null 또는 undefined'); //null 또는 undefined
+		let str3 = undefined;
+		console.log(str3 ?? 'null 또는 undefined'); //null 또는 undefined
+
+		//Logical OR operator
+		console.log('---------------Logical OR operator')
+		console.log(str1 || 'falsy'); //hello
+		let falsy1 = null;
+		console.log(falsy1 || 'falsy'); //falsy
+		let falsy2 = undefined;
+		console.log(falsy2 || 'falsy'); //falsy
+		let falsy3 = false;
+		console.log(falsy3 || 'falsy'); //falsy
+		let falsy4 = 0;
+		console.log(falsy4 || 'falsy'); //falsy
+		let falsy5 = -0;
+		console.log(falsy5 || 'falsy'); //falsy
+		let falsy6 = "";
+		console.log(falsy6 || 'falsy'); //falsy
+		let falsy7 = '';
+		console.log(falsy7 || 'falsy'); //falsy
+		let falsy8 = ``;
+		console.log(falsy8 || 'falsy'); //falsy
+
+		//object-dectructuring
+		console.log('---------------object-dectructuring')
+		const person = {
+			name : '홍길동',
+			age : 20,
+			gender : 'male'
+		};
+		
+		const{name, age} = person;
+		console.log(name); //person.name = 홍길동
+		console.log(age); //person.age = 20
+		
+		//Spread-syntax-object
+		console.log('---------------Spread-syntax-object')
+		const detail = {
+			address : 'korea',
+			heghit : '180cm',
+			weight : '80kg'
+		}
+		//객체에서
+		const personInfo1 = Object.assign(person, detail);
+		console.log(personInfo1);
+		const personInfo2 = {...person, ...detail};
+		console.log(personInfo2);
+		const personInfo3 = {...person, ...detail, weight: '70kg'};
+		console.log(personInfo3);
+
+		//배열에서
+		let fruits1 = ['수박', '복숭아'];
+		fruits1 = [...fruits1, '자두'];
+		const fruits2 = ['사과', '배'];
+		let combined1 = fruits1.concat(fruits2);
+		console.log(combined1);
+		let combined2 = [...fruits1, ...fruits2];
+		console.log(combined2);
+
+		//Optional-chaning
+		console.log('---------------Optional-chaning')
+		const person2 = {
+			name : '임꺽정',
+			school : {
+				name : '한국대'
+			}
+		};
+		const person3 = {
+			name : '이순신'
+		};
+
+		const info1 = person2.school?.name ?? '대학교를 추가하세요'
+		console.log(info1);
+		const info2 = person3.school?.name ?? '대학교를 추가하세요'
+		console.log(info2);
+
+		//Loops
+		console.log('---------------Loops')
+		const numArr = [1, 2, 3, 4, 5, 6];
+
+		//짝수에 3을 곱해서 더한 값 계산	
+		const evens = numArr.filter((num) => num % 2 === 0);
+		console.log(evens);
+		const multiple = evens.map((num) => num * 4);
+		console.log(multiple);
+		const sum = multiple.reduce((a,b) => a+b, 0);
+		console.log(sum);
+
+		const result = numArr
+			.filter((num) => num % 2 === 0)
+			.map((num) => num * 4)
+			.reduce((a,b) => a+b, 0)
+		console.log(result);
+
+		//Set
+		const animals = ['강아지', '고양이', '강아지', '오리' , '강아지'];
+		console.log([...new Set(animals)]); 
+	</script>
+</body>
+</html>
